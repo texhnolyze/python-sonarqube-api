@@ -28,8 +28,8 @@ from sonarqube.utils.config import (
 )
 
 
+# ruff: noqa: F811
 class SonarQubeAlmSettings(RestClient):
-
     def __init__(self, **kwargs):
         """
 

@@ -2,10 +2,7 @@
 # -*- coding:utf-8 -*-
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
-from sonarqube.utils.config import (
-    API_PROJECT_DUMP_EXPORT_ENDPOINT,
-    API_PROJECT_DUMP_IMPORT_ENDPOINT  # pro
-)
+from sonarqube.utils.config import API_PROJECT_DUMP_EXPORT_ENDPOINT, API_PROJECT_DUMP_IMPORT_ENDPOINT  # pro
 from sonarqube.utils.common import POST
 
 

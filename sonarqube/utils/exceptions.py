@@ -39,4 +39,5 @@ class NotFoundError(ClientError):
     not found error
 
     """
+
     pass

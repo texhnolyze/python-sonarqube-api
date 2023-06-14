@@ -12,7 +12,7 @@ from sonarqube.utils.config import (
     API_USERS_DEACTIVATE_ENDPOINT,
     API_USERS_UPDATE_LOGIN_ENDPOINT,
     API_USERS_DISMISS_SONARLINT_AD_ENDPOINT,
-    API_USERS_UPDATE_IDENTITY_ENDPOINT
+    API_USERS_UPDATE_IDENTITY_ENDPOINT,
 )
 from sonarqube.utils.common import GET, POST
 
@@ -63,9 +63,7 @@ class SonarQubeUsers(SonarQubeBaseUsers):
         :return: request response
         """
 
-    def create_user(
-        self, login, name, email=None, password=None, local="true", scmAccount=None
-    ):
+    def create_user(self, login, name, email=None, password=None, local="true", scmAccount=None):
         """
         SINCE 3.7
         Create a user.

@@ -33,7 +33,7 @@ from sonarqube.utils.config import (
     API_VIEWS_REMOVE_APPLICATION_VIEW,  # pro
     API_VIEWS_PORTFOLIOS_VIEW,  # pro
     API_VIEWS_ADD_PORTFOLIO_VIEW,  # pro
-    API_VIEWS_REMOVE_PORTFOLIO_VIEW  # pro
+    API_VIEWS_REMOVE_PORTFOLIO_VIEW,  # pro
 )
 
 

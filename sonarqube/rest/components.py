@@ -23,9 +23,7 @@ class SonarQubeComponents(RestClient):
         super(SonarQubeComponents, self).__init__(**kwargs)
 
     @GET(API_COMPONTENTS_SHOW_ENDPOINT)
-    def get_project_component_and_ancestors(
-        self, component, branch=None, pullRequest=None
-    ):
+    def get_project_component_and_ancestors(self, component, branch=None, pullRequest=None):
         """
         SINCE 5.4
         Returns a component (file, directory, project, view…) and its ancestors. The ancestors are ordered from the

@@ -25,9 +25,7 @@ class SonarQubeSources(RestClient):
         super(SonarQubeSources, self).__init__(**kwargs)
 
     @GET(API_SOURCES_SCM_ENDPOINT)
-    def get_source_file_scm(
-        self, key, from_line=1, to_line=None, commits_by_line="false"
-    ):
+    def get_source_file_scm(self, key, from_line=1, to_line=None, commits_by_line="false"):
         """
         SINCE 4.4
         Get SCM information of source files. Require See Source Code permission on file's project.

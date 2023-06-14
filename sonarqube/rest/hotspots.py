@@ -5,7 +5,7 @@ from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
     API_HOTSPOTS_SHOW_ENDPOINT,
     API_HOTSPOTS_SEARCH_ENDPOINT,
-    API_HOTSPOTS_CHANGE_STATUS_ENDPOINT  # pro
+    API_HOTSPOTS_CHANGE_STATUS_ENDPOINT,  # pro
 )
 from sonarqube.utils.common import GET, POST
 

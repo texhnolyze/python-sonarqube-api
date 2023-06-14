@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 # @Author: Jialiang Shi
-import json
 import requests
 from requests.auth import HTTPBasicAuth
 
@@ -57,17 +56,7 @@ class SonarQubeClient:
 
     DEFAULT_URL = "http://localhost:9000"
 
-    def __init__(
-        self,
-        sonarqube_url=None,
-        username=None,
-        password=None,
-        token=None,
-        verify=None,
-        cert=None,
-        timeout=None
-    ):
-
+    def __init__(self, sonarqube_url=None, username=None, password=None, token=None, verify=None, cert=None, timeout=None):
         self.base_url = strip_trailing_slash(sonarqube_url or self.DEFAULT_URL)
 
         _session = requests.Session()

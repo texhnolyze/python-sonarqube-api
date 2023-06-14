@@ -9,12 +9,12 @@ from sonarqube.utils.config import (
     API_ALM_INTEGRATION_SEARCH_AZURE_REPOS,
     API_ALM_INTEGRATION_LIST_BITBUCKETSERVER_PROJECTS,
     API_ALM_INTEGRATION_LIST_AZURE_PROJECTS,
-    API_ALM_INTEGRATION_IMPORT_GITLAB_PROJECT
+    API_ALM_INTEGRATION_IMPORT_GITLAB_PROJECT,
 )
 
 
+# ruff: noqa: F811
 class SonarQubeAlmIntegrations(RestClient):
-
     def __init__(self, **kwargs):
         """
 

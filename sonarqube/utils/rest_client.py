@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 # @Author: Jialiang Shi
-import json as js
 from sonarqube.utils.exceptions import (
     ClientError,
     AuthError,
@@ -173,9 +172,7 @@ class RestClient(object):
         :param params:
         :return:
         """
-        return self.request(
-            "PUT", path=path, data=data, headers=headers, files=files, params=params
-        )
+        return self.request("PUT", path=path, data=data, headers=headers, files=files, params=params)
 
     def _delete(self, path, data=None, headers=None, params=None):
         """
@@ -187,6 +184,4 @@ class RestClient(object):
         :param params:
         :return:
         """
-        return self.request(
-            "DELETE", path=path, data=data, headers=headers, params=params
-        )
+        return self.request("DELETE", path=path, data=data, headers=headers, params=params)

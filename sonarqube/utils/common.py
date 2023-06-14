@@ -51,7 +51,7 @@ def get_default_kwargs(func):
     if not argspec.defaults:
         return []
 
-    return zip(argspec.args[-len(argspec.defaults) :], argspec.defaults)
+    return zip(argspec.args[-len(argspec.defaults) :], argspec.defaults, strict=False)
 
 
 def translate_params(f, *args, **kwargs):
@@ -72,12 +72,10 @@ def translate_params(f, *args, **kwargs):
             argspec = inspect.getargspec(f)
 
         func_parameters = argspec.args[1:]
-        additional_args = func_parameters[
-            len(get_args(f)) : len(get_args(f)) + len(additional_values)
-        ]
-        all_params.update(dict(zip(additional_args, additional_values)))
+        additional_args = func_parameters[len(get_args(f)) : len(get_args(f)) + len(additional_values)]
+        all_params.update(dict(zip(additional_args, additional_values, strict=False)))
 
-    all_params.update(dict(zip(get_args(f), args)))
+    all_params.update(dict(zip(get_args(f), args, strict=False)))
     all_params.update(kwargs)
 
     for key in list(all_params.keys()):
@@ -139,7 +137,7 @@ def endpoint(url_pattern, method="GET"):
                         return response.json()
                     else:
                         return response.text
-                except Exception as e:
+                except Exception:
                     return response.content
 
         return inner_func

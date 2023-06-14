@@ -93,9 +93,7 @@ class SonarQubeQualityGates(RestClient):
         """
 
     @POST(API_QUALITYGATES_CREATE_CONDITION_ENDPOINT)
-    def create_condition_to_quality_gate(
-        self, gateId, metric, error, op=None, organization=None
-    ):
+    def create_condition_to_quality_gate(self, gateId, metric, error, op=None, organization=None):
         """
         SINCE 4.3
         Add a new condition to a quality gate.
@@ -131,9 +129,7 @@ class SonarQubeQualityGates(RestClient):
         """
 
     @POST(API_QUALITYGATES_UPDATE_CONDITION_ENDPOINT)
-    def update_condition_to_quality_gate(
-        self, id, metric, error, op=None, organization=None
-    ):
+    def update_condition_to_quality_gate(self, id, metric, error, op=None, organization=None):
         """
         SINCE 4.3
         Update a condition attached to a quality gate.
@@ -158,9 +154,7 @@ class SonarQubeQualityGates(RestClient):
         """
 
     @GET(API_QUALITYGATES_SEARCH_ENDPOINT)
-    def get_qualitygate_projects(
-        self, gateId, selected="selected", query=None, organization=None, page=None, pageSize=None
-    ):
+    def get_qualitygate_projects(self, gateId, selected="selected", query=None, organization=None, page=None, pageSize=None):
         """
         SINCE 4.3
         Search for projects associated (or not) to a quality gate.
@@ -193,9 +187,7 @@ class SonarQubeQualityGates(RestClient):
         """
 
     @GET(API_QUALITYGATES_PROJECT_STATUS_ENDPOINT)
-    def get_project_qualitygates_status(
-        self, projectKey=None, analysisId=None, branch=None, pullRequest=None
-    ):
+    def get_project_qualitygates_status(self, projectKey=None, analysisId=None, branch=None, pullRequest=None):
         """
         SINCE 5.3
         Get the quality gate status of a project or a Compute Engine task. return 'ok','WARN','ERROR'

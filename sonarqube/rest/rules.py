@@ -283,7 +283,7 @@ class SonarQubeRules(RestClient):
         severity=None,
         status=None,
         tags=None,
-        params=None
+        params=None,
     ):
         """
         SINCE 4.4

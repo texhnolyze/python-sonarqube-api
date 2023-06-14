@@ -10,7 +10,6 @@ from sonarqube.utils.config import (
 
 
 class SonarQubeAnalysisCache(RestClient):
-
     def __init__(self, **kwargs):
         """
 

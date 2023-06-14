@@ -39,9 +39,7 @@ class SonarQubeQualityProfiles(RestClient):
         """
         super(SonarQubeQualityProfiles, self).__init__(**kwargs)
 
-    def activate_rule_for_quality_profile(
-        self, key, rule, reset=False, severity=None, **params
-    ):
+    def activate_rule_for_quality_profile(self, key, rule, reset=False, severity=None, **params):
         """
         SINCE 4.4
         Activate a rule for a given quality profile.
@@ -69,9 +67,7 @@ class SonarQubeQualityProfiles(RestClient):
 
             # Add params if we have any
             # Note: sort by key to allow checking easily
-            params = ";".join(
-                "{}={}".format(k, v) for k, v in sorted(params.items()) if v
-            )
+            params = ";".join("{}={}".format(k, v) for k, v in sorted(params.items()) if v)
             if params:
                 data["params"] = params
 
@@ -90,9 +86,7 @@ class SonarQubeQualityProfiles(RestClient):
         """
 
     @GET(API_QUALITYPROFILES_SEARCH_ENDPOINT)
-    def search_quality_profiles(
-        self, organization=None, defaults="false", language=None, project=None, qualityProfile=None
-    ):
+    def search_quality_profiles(self, organization=None, defaults="false", language=None, project=None, qualityProfile=None):
         """
         SINCE 5.2
         Search quality profiles
@@ -132,9 +126,7 @@ class SonarQubeQualityProfiles(RestClient):
         """
 
     @POST(API_QUALITYPROFILES_REMOVE_PROJECT_ENDPOINT)
-    def remove_project_associate_with_quality_profile(
-        self, project, language, qualityProfile, organization=None
-    ):
+    def remove_project_associate_with_quality_profile(self, project, language, qualityProfile, organization=None):
         """
         SINCE 5.2
         Remove a project's association with a quality profile.
@@ -159,9 +151,7 @@ class SonarQubeQualityProfiles(RestClient):
         """
 
     @POST(API_QUALITYPROFILES_CHANGE_PARENT_ENDPOINT)
-    def change_parent_of_quality_profile(
-        self, parentQualityProfile, language, qualityProfile, organization=None
-    ):
+    def change_parent_of_quality_profile(self, parentQualityProfile, language, qualityProfile, organization=None):
         """
         SINCE 5.2
         Change a quality profile's parent.
@@ -240,9 +230,7 @@ class SonarQubeQualityProfiles(RestClient):
         """
 
     @GET(API_QUALITYPROFILES_EXPORT_ENDPOINT)
-    def export_quality_profile(
-        self, exporterKey=None, language=None, qualityProfile=None, organization=None
-    ):
+    def export_quality_profile(self, exporterKey=None, language=None, qualityProfile=None, organization=None):
         """
         SINCE 5.2
         Export a quality profile.
@@ -294,9 +282,7 @@ class SonarQubeQualityProfiles(RestClient):
         """
 
     @GET(API_QUALITYPROFILES_PROJECTS_ENDPOINT)
-    def get_projects_associate_with_quality_profile(
-        self, key, q=None, selected="selected", p=None, ps=None
-    ):
+    def get_projects_associate_with_quality_profile(self, key, q=None, selected="selected", p=None, ps=None):
         """
         SINCE 5.2
         List projects with their association status regarding a quality profile
@@ -341,6 +327,6 @@ class SonarQubeQualityProfiles(RestClient):
         else:
             data = None
 
-        files = {'backup': backup}
+        files = {"backup": backup}
 
         return self._post(API_QUALITYPROFILES_RESTORE_ENDPOINT, data=data, files=files)

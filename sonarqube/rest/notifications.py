@@ -33,9 +33,7 @@ class SonarQubeNotifications(RestClient):
         """
 
     @POST(API_NOTIFICATIONS_ADD_ENDPOINT)
-    def add_notification_for_user(
-        self, login, type, channel="EmailNotificationChannel", project=None
-    ):
+    def add_notification_for_user(self, login, type, channel="EmailNotificationChannel", project=None):
         """
         SINCE 6.3
         Add a notification for the authenticated user.
@@ -53,9 +51,7 @@ class SonarQubeNotifications(RestClient):
         """
 
     @POST(API_NOTIFICATIONS_REMOVE_ENDPOINT)
-    def remove_notification_for_user(
-        self, login, type, channel="EmailNotificationChannel", project=None
-    ):
+    def remove_notification_for_user(self, login, type, channel="EmailNotificationChannel", project=None):
         """
         SINCE 6.3
         Remove a notification for the authenticated user.
