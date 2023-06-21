@@ -21,6 +21,7 @@ API_APPLICATIONS_DELETE_BRANCH = "/api/applications/delete_branch"
 API_APPLICATIONS_UPDATE_BRANCH = "/api/applications/update_branch"
 API_APPLICATIONS_SET_TAGS = "/api/applications/set_tags"
 
+API_USERS_CURRENT = "/api/users/current"
 API_USERS_SEARCH = "/api/users/search"
 API_USERS_CREATE = "/api/users/create"
 API_USERS_UPDATE = "/api/users/update"

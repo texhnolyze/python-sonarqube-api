@@ -3,6 +3,7 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
+    API_USERS_CURRENT,
     API_USERS_ANONYMIZE,
     API_USERS_SEARCH,
     API_USERS_CREATE,
@@ -52,6 +53,13 @@ class SonarQubeUsers(SonarQubeBaseUsers):
     """
     SonarQube users Operations
     """
+
+    @GET(API_USERS_CURRENT)
+    def current(self):
+        """
+        INTERNAL SINCE 5.2
+        Get the details of the current authenticated user.
+        """
 
     @POST(API_USERS_ANONYMIZE)
     def anonymize_deactivated_user(self, login):
