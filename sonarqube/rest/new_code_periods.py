@@ -3,10 +3,10 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_NEW_CODE_PERIODS_LIST_ENDPOINT,
-    API_NEW_CODE_PERIODS_SET_ENDPOINT,
-    API_NEW_CODE_PERIODS_SHOW_ENDPOINT,
-    API_NEW_CODE_PERIODS_UNSET_ENDPOINT,
+    API_NEW_CODE_PERIODS_LIST,
+    API_NEW_CODE_PERIODS_SET,
+    API_NEW_CODE_PERIODS_SHOW,
+    API_NEW_CODE_PERIODS_UNSET,
 )
 from sonarqube.utils.common import GET, POST
 
@@ -23,7 +23,7 @@ class SonarQubeNewcodeperiods(RestClient):
         """
         super(SonarQubeNewcodeperiods, self).__init__(**kwargs)
 
-    @GET(API_NEW_CODE_PERIODS_LIST_ENDPOINT)
+    @GET(API_NEW_CODE_PERIODS_LIST)
     def list(self, project):
         """
         SINCE 8.0
@@ -33,7 +33,7 @@ class SonarQubeNewcodeperiods(RestClient):
         :return:
         """
 
-    @POST(API_NEW_CODE_PERIODS_SET_ENDPOINT)
+    @POST(API_NEW_CODE_PERIODS_SET)
     def set(self, type, project=None, branch=None, value=None):
         """
         SINCE 8.0
@@ -58,7 +58,7 @@ class SonarQubeNewcodeperiods(RestClient):
         :return:
         """
 
-    @GET(API_NEW_CODE_PERIODS_SHOW_ENDPOINT)
+    @GET(API_NEW_CODE_PERIODS_SHOW)
     def show(self, project=None, branch=None):
         """
         SINCE 8.0
@@ -69,7 +69,7 @@ class SonarQubeNewcodeperiods(RestClient):
         :return:
         """
 
-    @POST(API_NEW_CODE_PERIODS_UNSET_ENDPOINT)
+    @POST(API_NEW_CODE_PERIODS_UNSET)
     def unset(self, project=None, branch=None):
         """
         SINCE 8.0

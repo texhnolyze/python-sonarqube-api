@@ -3,11 +3,11 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_CE_ACTIVITY_ENDPOINT,
-    API_CE_ACTIVITY_STATUS_ENDPOINT,
-    API_CE_ANALYSIS_STATUS_ENDPOINT,
-    API_CE_COMPONENT_ENDPOINT,
-    API_CE_TASK_ENDPOINT,
+    API_CE_ACTIVITY,
+    API_CE_ACTIVITY_STATUS,
+    API_CE_ANALYSIS_STATUS,
+    API_CE_COMPONENT,
+    API_CE_TASK,
 )
 from sonarqube.utils.common import GET
 
@@ -24,7 +24,7 @@ class SonarQubeCe(RestClient):
         """
         super(SonarQubeCe, self).__init__(**kwargs)
 
-    @GET(API_CE_ACTIVITY_ENDPOINT)
+    @GET(API_CE_ACTIVITY)
     def search_tasks(
         self,
         component=None,
@@ -77,7 +77,7 @@ class SonarQubeCe(RestClient):
         :return:
         """
 
-    @GET(API_CE_ACTIVITY_STATUS_ENDPOINT)
+    @GET(API_CE_ACTIVITY_STATUS)
     def get_ce_activity_related_metrics(self, componentId=None):
         """
         SINCE 5.5
@@ -87,7 +87,7 @@ class SonarQubeCe(RestClient):
         :return:
         """
 
-    @GET(API_CE_ANALYSIS_STATUS_ENDPOINT)
+    @GET(API_CE_ANALYSIS_STATUS)
     def get_ce_analysis_status(self, component, branch=None, pullRequest=None):
         """
         Get last analysis status including warnings of a given component (usually a project).
@@ -98,7 +98,7 @@ class SonarQubeCe(RestClient):
         :return:
         """
 
-    @GET(API_CE_COMPONENT_ENDPOINT)
+    @GET(API_CE_COMPONENT)
     def get_component_queue_and_current_tasks(self, component):
         """
         SINCE 5.2
@@ -108,7 +108,7 @@ class SonarQubeCe(RestClient):
         :return:
         """
 
-    @GET(API_CE_TASK_ENDPOINT)
+    @GET(API_CE_TASK)
     def get_task(self, id, additionalFields=None):
         """
         SINCE 5.2

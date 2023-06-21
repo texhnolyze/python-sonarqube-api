@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
-from sonarqube.utils.config import API_PROJECT_DUMP_EXPORT_ENDPOINT, API_PROJECT_DUMP_IMPORT_ENDPOINT
+from sonarqube.utils.config import API_PROJECT_DUMP_EXPORT, API_PROJECT_DUMP_IMPORT
 from sonarqube.utils.common import POST
 
 
@@ -18,7 +18,7 @@ class SonarQubeProjectDump(RestClient):
         """
         super(SonarQubeProjectDump, self).__init__(**kwargs)
 
-    @POST(API_PROJECT_DUMP_EXPORT_ENDPOINT)
+    @POST(API_PROJECT_DUMP_EXPORT)
     def export_project_dump(self, key):
         """
         SINCE 1.0
@@ -28,7 +28,7 @@ class SonarQubeProjectDump(RestClient):
         :return:
         """
 
-    @POST(API_PROJECT_DUMP_IMPORT_ENDPOINT)
+    @POST(API_PROJECT_DUMP_IMPORT)
     def import_project_dump(self, key):
         """
         SINCE 1.0

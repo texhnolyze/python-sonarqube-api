@@ -3,9 +3,9 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_SOURCES_SCM_ENDPOINT,
-    API_SOURCES_SHOW_ENDPOINT,
-    API_SOURCES_RAW_ENDPOINT,
+    API_SOURCES_SCM,
+    API_SOURCES_SHOW,
+    API_SOURCES_RAW,
 )
 from sonarqube.utils.common import GET
 
@@ -24,7 +24,7 @@ class SonarQubeSources(RestClient):
         """
         super(SonarQubeSources, self).__init__(**kwargs)
 
-    @GET(API_SOURCES_SCM_ENDPOINT)
+    @GET(API_SOURCES_SCM)
     def get_source_file_scm(self, key, from_line=1, to_line=None, commits_by_line="false"):
         """
         SINCE 4.4
@@ -44,7 +44,7 @@ class SonarQubeSources(RestClient):
         :return:
         """
 
-    @GET(API_SOURCES_SHOW_ENDPOINT)
+    @GET(API_SOURCES_SHOW)
     def get_source_code(self, key, from_line=1, to_line=None):
         """
         SINCE 4.4
@@ -56,7 +56,7 @@ class SonarQubeSources(RestClient):
         :return:
         """
 
-    @GET(API_SOURCES_RAW_ENDPOINT)
+    @GET(API_SOURCES_RAW)
     def get_sources_raw(self, key, branch=None, pullRequest=None):
         """
         SINCE 5.0

@@ -3,16 +3,16 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_USERS_ANONYMIZE_ENDPOINT,
-    API_USERS_SEARCH_ENDPOINT,
-    API_USERS_CREATE_ENDPOINT,
-    API_USERS_UPDATE_ENDPOINT,
-    API_USERS_CHANGE_PASSWORD_ENDPOINT,
-    API_USERS_GROUPS_ENDPOINT,
-    API_USERS_DEACTIVATE_ENDPOINT,
-    API_USERS_UPDATE_LOGIN_ENDPOINT,
+    API_USERS_ANONYMIZE,
+    API_USERS_SEARCH,
+    API_USERS_CREATE,
+    API_USERS_UPDATE,
+    API_USERS_CHANGE_PASSWORD,
+    API_USERS_GROUPS,
+    API_USERS_DEACTIVATE,
+    API_USERS_UPDATE_LOGIN,
     API_USERS_DISMISS_NOTICE,
-    API_USERS_UPDATE_IDENTITY_ENDPOINT,
+    API_USERS_UPDATE_IDENTITY,
 )
 from sonarqube.utils.common import GET, POST
 
@@ -35,7 +35,7 @@ class SonarQubeBaseUsers(RestClient):
             if user["login"] == login:
                 return user
 
-    @GET(API_USERS_SEARCH_ENDPOINT)
+    @GET(API_USERS_SEARCH)
     def search_users(self, q=None, p=None, ps=None):
         """
         SINCE 3.6
@@ -53,7 +53,7 @@ class SonarQubeUsers(SonarQubeBaseUsers):
     SonarQube users Operations
     """
 
-    @POST(API_USERS_ANONYMIZE_ENDPOINT)
+    @POST(API_USERS_ANONYMIZE)
     def anonymize_deactivated_user(self, login):
         """
         SINCE 9.7
@@ -88,9 +88,9 @@ class SonarQubeUsers(SonarQubeBaseUsers):
         if scmAccount:
             data.update({"scmAccount": scmAccount})
 
-        return self._post(API_USERS_CREATE_ENDPOINT, data=data)
+        return self._post(API_USERS_CREATE, data=data)
 
-    @POST(API_USERS_UPDATE_ENDPOINT)
+    @POST(API_USERS_UPDATE)
     def update_user(self, login, name=None, email=None, scmAccount=None):
         """
         SINCE 3.7
@@ -103,7 +103,7 @@ class SonarQubeUsers(SonarQubeBaseUsers):
         :return: request response
         """
 
-    @POST(API_USERS_CHANGE_PASSWORD_ENDPOINT)
+    @POST(API_USERS_CHANGE_PASSWORD)
     def change_user_password(self, login, password, previousPassword=None):
         """
         SINCE 5.2
@@ -117,7 +117,7 @@ class SonarQubeUsers(SonarQubeBaseUsers):
         :return:
         """
 
-    @POST(API_USERS_DEACTIVATE_ENDPOINT)
+    @POST(API_USERS_DEACTIVATE)
     def deactivate_user(self, login):
         """
         SINCE 3.7
@@ -127,7 +127,7 @@ class SonarQubeUsers(SonarQubeBaseUsers):
         :return: request response
         """
 
-    @GET(API_USERS_GROUPS_ENDPOINT)
+    @GET(API_USERS_GROUPS)
     def search_groups_user_belongs_to(self, login, q=None, selected="selected", p=None, ps=None, organization=None):
         """
         SINCE 5.2
@@ -147,7 +147,7 @@ class SonarQubeUsers(SonarQubeBaseUsers):
         :return:
         """
 
-    @POST(API_USERS_UPDATE_LOGIN_ENDPOINT)
+    @POST(API_USERS_UPDATE_LOGIN)
     def update_user_login(self, login, newLogin):
         """
         SINCE 7.6
@@ -170,7 +170,7 @@ class SonarQubeUsers(SonarQubeBaseUsers):
         :return:
         """
 
-    @POST(API_USERS_UPDATE_IDENTITY_ENDPOINT)
+    @POST(API_USERS_UPDATE_IDENTITY)
     def update_identity_provider(self, login, newExternalProvider, newExternalIdentity=None):
         """
         SINCE 8.7

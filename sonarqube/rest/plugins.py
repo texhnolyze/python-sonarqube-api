@@ -3,14 +3,14 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_PLUGINS_AVAILABLE_ENDPOINT,
-    API_PLUGINS_CANCEL_ALL_ENDPOINT,
-    API_PLUGINS_INSTALL_ENDPOINT,
-    API_PLUGINS_INSTALLED_ENDPOINT,
-    API_PLUGINS_PENDING_ENDPOINT,
-    API_PLUGINS_UNINSTALL_ENDPOINT,
-    API_PLUGINS_UPDATE_ENDPOINT,
-    API_PLUGINS_UPDATES_ENDPOINT,
+    API_PLUGINS_AVAILABLE,
+    API_PLUGINS_CANCEL_ALL,
+    API_PLUGINS_INSTALL,
+    API_PLUGINS_INSTALLED,
+    API_PLUGINS_PENDING,
+    API_PLUGINS_UNINSTALL,
+    API_PLUGINS_UPDATE,
+    API_PLUGINS_UPDATES,
 )
 from sonarqube.utils.common import GET, POST
 
@@ -27,7 +27,7 @@ class SonarQubePlugins(RestClient):
         """
         super(SonarQubePlugins, self).__init__(**kwargs)
 
-    @GET(API_PLUGINS_AVAILABLE_ENDPOINT)
+    @GET(API_PLUGINS_AVAILABLE)
     def get_available_plugins(self):
         """
         SINCE 5.2
@@ -44,7 +44,7 @@ class SonarQubePlugins(RestClient):
         :return:
         """
 
-    @POST(API_PLUGINS_CANCEL_ALL_ENDPOINT)
+    @POST(API_PLUGINS_CANCEL_ALL)
     def cancel_operation_pending_plugins(self):
         """
         SINCE 5.2
@@ -53,7 +53,7 @@ class SonarQubePlugins(RestClient):
         :return:
         """
 
-    @POST(API_PLUGINS_INSTALL_ENDPOINT)
+    @POST(API_PLUGINS_INSTALL)
     def install_plugin(self, key):
         """
         SINCE 5.2
@@ -64,7 +64,7 @@ class SonarQubePlugins(RestClient):
         :return:
         """
 
-    @GET(API_PLUGINS_INSTALLED_ENDPOINT)
+    @GET(API_PLUGINS_INSTALLED)
     def get_installed_plugins(self, f=None):
         """
         SINCE 5.2
@@ -76,7 +76,7 @@ class SonarQubePlugins(RestClient):
         :return:
         """
 
-    @GET(API_PLUGINS_PENDING_ENDPOINT)
+    @GET(API_PLUGINS_PENDING)
     def get_pending_plugins(self):
         """
         SINCE 5.2
@@ -86,7 +86,7 @@ class SonarQubePlugins(RestClient):
         :return:
         """
 
-    @POST(API_PLUGINS_UNINSTALL_ENDPOINT)
+    @POST(API_PLUGINS_UNINSTALL)
     def uninstall_plugin(self, key):
         """
         SINCE 5.2
@@ -96,7 +96,7 @@ class SonarQubePlugins(RestClient):
         :return:
         """
 
-    @POST(API_PLUGINS_UPDATE_ENDPOINT)
+    @POST(API_PLUGINS_UPDATE)
     def update_plugin(self, key):
         """
         SINCE 5.2
@@ -107,7 +107,7 @@ class SonarQubePlugins(RestClient):
         :return:
         """
 
-    @GET(API_PLUGINS_UPDATES_ENDPOINT)
+    @GET(API_PLUGINS_UPDATES)
     def get_available_update_plugins(self):
         """
         SINCE 5.2

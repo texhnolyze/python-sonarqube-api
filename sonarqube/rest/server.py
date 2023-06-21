@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
-from sonarqube.utils.config import API_SERVER_VERSION_ENDPOINT
+from sonarqube.utils.config import API_SERVER_VERSION
 from sonarqube.utils.common import GET
 
 
@@ -18,7 +18,7 @@ class SonarQubeServer(RestClient):
         """
         super(SonarQubeServer, self).__init__(**kwargs)
 
-    @GET(API_SERVER_VERSION_ENDPOINT)
+    @GET(API_SERVER_VERSION)
     def get_server_version(self):
         """
         SINCE 2.10

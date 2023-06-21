@@ -3,9 +3,9 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_USER_TOKENS_GENERATE_ENDPOINT,
-    API_USER_TOKENS_REVOKE_ENDPOINT,
-    API_USER_TOKENS_SEARCH_ENDPOINT,
+    API_USER_TOKENS_GENERATE,
+    API_USER_TOKENS_REVOKE,
+    API_USER_TOKENS_SEARCH,
 )
 from sonarqube.utils.common import GET, POST
 
@@ -22,7 +22,7 @@ class SonarQubeUserTokens(RestClient):
         """
         super(SonarQubeUserTokens, self).__init__(**kwargs)
 
-    @POST(API_USER_TOKENS_GENERATE_ENDPOINT)
+    @POST(API_USER_TOKENS_GENERATE)
     def generate_user_token(self, name, login=None):
         """
         SINCE 5.3
@@ -36,7 +36,7 @@ class SonarQubeUserTokens(RestClient):
         :return: request response
         """
 
-    @POST(API_USER_TOKENS_REVOKE_ENDPOINT)
+    @POST(API_USER_TOKENS_REVOKE)
     def revoke_user_token(self, name, login=None):
         """
         SINCE 5.3
@@ -49,7 +49,7 @@ class SonarQubeUserTokens(RestClient):
         :return:
         """
 
-    @GET(API_USER_TOKENS_SEARCH_ENDPOINT)
+    @GET(API_USER_TOKENS_SEARCH)
     def search_user_tokens(self, login=None):
         """
         SINCE 5.3

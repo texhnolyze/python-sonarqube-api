@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
-from sonarqube.utils.config import API_AUDIT_LOGS_DOWNLOAD_ENDPOINT
+from sonarqube.utils.config import API_AUDIT_LOGS_DOWNLOAD
 from sonarqube.utils.common import GET
 
 
@@ -18,7 +18,7 @@ class SonarQubeAuditLogs(RestClient):
         """
         super(SonarQubeAuditLogs, self).__init__(**kwargs)
 
-    @GET(API_AUDIT_LOGS_DOWNLOAD_ENDPOINT)
+    @GET(API_AUDIT_LOGS_DOWNLOAD)
     def download_audit_logs(self, from_date, to_date):
         """
         SINCE 9.1

@@ -3,23 +3,23 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_QUALITYGATES_LIST_ENDPOINT,
-    API_QUALITYGATES_PROJECT_STATUS_ENDPOINT,
-    API_QUALITYGATES_SELECT_ENDPOINT,
-    API_QUALITYGATES_DESELECT_ENDPOINT,
-    API_QUALITYGATES_SHOW_ENDPOINT,
-    API_QUALITYGATES_GET_BY_PROJECT_ENDPOINT,
-    API_QUALITYGATES_COPY_ENDPOINT,
-    API_QUALITYGATES_CREATE_ENDPOINT,
-    API_QUALITYGATES_DESTROY_ENDPOINT,
-    API_QUALITYGATES_RENAME_ENDPOINT,
-    API_QUALITYGATES_CREATE_CONDITION_ENDPOINT,
-    API_QUALITYGATES_DELETE_CONDITION_ENDPOINT,
-    API_QUALITYGATES_UPDATE_CONDITION_ENDPOINT,
-    API_QUALITYGATES_SEARCH_ENDPOINT,
-    API_QUALITYGATES_SET_AS_DEFAULT_ENDPOINT,
-    API_QUALITYGATES_ADD_USER_ENDPOINT,
-    API_QUALITYGATES_ADD_GROUP_ENDPOINT,
+    API_QUALITYGATES_LIST,
+    API_QUALITYGATES_PROJECT_STATUS,
+    API_QUALITYGATES_SELECT,
+    API_QUALITYGATES_DESELECT,
+    API_QUALITYGATES_SHOW,
+    API_QUALITYGATES_GET_BY_PROJECT,
+    API_QUALITYGATES_COPY,
+    API_QUALITYGATES_CREATE,
+    API_QUALITYGATES_DESTROY,
+    API_QUALITYGATES_RENAME,
+    API_QUALITYGATES_CREATE_CONDITION,
+    API_QUALITYGATES_DELETE_CONDITION,
+    API_QUALITYGATES_UPDATE_CONDITION,
+    API_QUALITYGATES_SEARCH,
+    API_QUALITYGATES_SET_AS_DEFAULT,
+    API_QUALITYGATES_ADD_USER,
+    API_QUALITYGATES_ADD_GROUP,
 )
 from sonarqube.utils.common import GET, POST
 
@@ -36,7 +36,7 @@ class SonarQubeQualityGates(RestClient):
         """
         super(SonarQubeQualityGates, self).__init__(**kwargs)
 
-    @POST(API_QUALITYGATES_ADD_USER_ENDPOINT)
+    @POST(API_QUALITYGATES_ADD_USER)
     def add_user_to_gate(self, gateName, login):
         """
         SINCE 9.2
@@ -47,7 +47,7 @@ class SonarQubeQualityGates(RestClient):
         :return:
         """
 
-    @POST(API_QUALITYGATES_ADD_GROUP_ENDPOINT)
+    @POST(API_QUALITYGATES_ADD_GROUP)
     def add_group_to_gate(self, gateName, groupName):
         """
         SINCE 9.2
@@ -58,7 +58,7 @@ class SonarQubeQualityGates(RestClient):
         :return:
         """
 
-    @POST(API_QUALITYGATES_COPY_ENDPOINT)
+    @POST(API_QUALITYGATES_COPY)
     def copy_quality_gate(self, id, name, organization=None):
         """
         SINCE 4.3
@@ -70,7 +70,7 @@ class SonarQubeQualityGates(RestClient):
         :return:
         """
 
-    @POST(API_QUALITYGATES_CREATE_ENDPOINT)
+    @POST(API_QUALITYGATES_CREATE)
     def create_quality_gate(self, name, organization=None):
         """
         SINCE 4.3
@@ -81,7 +81,7 @@ class SonarQubeQualityGates(RestClient):
         :return: request response
         """
 
-    @POST(API_QUALITYGATES_DESTROY_ENDPOINT)
+    @POST(API_QUALITYGATES_DESTROY)
     def delete_quality_gate(self, id, organization=None):
         """
         SINCE 4.3
@@ -92,7 +92,7 @@ class SonarQubeQualityGates(RestClient):
         :return:
         """
 
-    @POST(API_QUALITYGATES_RENAME_ENDPOINT)
+    @POST(API_QUALITYGATES_RENAME)
     def rename_quality_gate(self, id, name, organization=None):
         """
         SINCE 4.3
@@ -104,7 +104,7 @@ class SonarQubeQualityGates(RestClient):
         :return:
         """
 
-    @POST(API_QUALITYGATES_CREATE_CONDITION_ENDPOINT)
+    @POST(API_QUALITYGATES_CREATE_CONDITION)
     def create_condition_to_quality_gate(self, gateId, metric, error, op=None, organization=None):
         """
         SINCE 4.3
@@ -129,7 +129,7 @@ class SonarQubeQualityGates(RestClient):
         :return: request response
         """
 
-    @POST(API_QUALITYGATES_DELETE_CONDITION_ENDPOINT)
+    @POST(API_QUALITYGATES_DELETE_CONDITION)
     def delete_condition_from_quality_gate(self, id, organization=None):
         """
         SINCE 4.3
@@ -140,7 +140,7 @@ class SonarQubeQualityGates(RestClient):
         :return:
         """
 
-    @POST(API_QUALITYGATES_UPDATE_CONDITION_ENDPOINT)
+    @POST(API_QUALITYGATES_UPDATE_CONDITION)
     def update_condition_to_quality_gate(self, id, metric, error, op=None, organization=None):
         """
         SINCE 4.3
@@ -165,7 +165,7 @@ class SonarQubeQualityGates(RestClient):
         :return:
         """
 
-    @GET(API_QUALITYGATES_SEARCH_ENDPOINT)
+    @GET(API_QUALITYGATES_SEARCH)
     def get_qualitygate_projects(self, gateId, selected="selected", query=None, organization=None, page=None, pageSize=None):
         """
         SINCE 4.3
@@ -187,7 +187,7 @@ class SonarQubeQualityGates(RestClient):
         :return:
         """
 
-    @POST(API_QUALITYGATES_SET_AS_DEFAULT_ENDPOINT)
+    @POST(API_QUALITYGATES_SET_AS_DEFAULT)
     def set_default_qualitygate(self, id, organization=None):
         """
         SINCE 4.3
@@ -198,7 +198,7 @@ class SonarQubeQualityGates(RestClient):
         :return:
         """
 
-    @GET(API_QUALITYGATES_PROJECT_STATUS_ENDPOINT)
+    @GET(API_QUALITYGATES_PROJECT_STATUS)
     def get_project_qualitygates_status(self, projectKey=None, analysisId=None, branch=None, pullRequest=None):
         """
         SINCE 5.3
@@ -213,7 +213,7 @@ class SonarQubeQualityGates(RestClient):
         :return:
         """
 
-    @GET(API_QUALITYGATES_LIST_ENDPOINT)
+    @GET(API_QUALITYGATES_LIST)
     def get_quality_gates(self, organization=None):
         """
         SINCE 4.3
@@ -223,7 +223,7 @@ class SonarQubeQualityGates(RestClient):
         :return:
         """
 
-    @POST(API_QUALITYGATES_SELECT_ENDPOINT)
+    @POST(API_QUALITYGATES_SELECT)
     def select_quality_gate_for_project(self, projectKey, gateName, organization=None):
         """
         SINCE 4.3
@@ -235,7 +235,7 @@ class SonarQubeQualityGates(RestClient):
         :return:
         """
 
-    @POST(API_QUALITYGATES_DESELECT_ENDPOINT)
+    @POST(API_QUALITYGATES_DESELECT)
     def remove_project_from_quality_gate(self, projectKey, organization=None):
         """
         SINCE 4.3
@@ -246,7 +246,7 @@ class SonarQubeQualityGates(RestClient):
         :return:
         """
 
-    @GET(API_QUALITYGATES_SHOW_ENDPOINT)
+    @GET(API_QUALITYGATES_SHOW)
     def show_quality_gate(self, name, organization=None):
         """
         SINCE 4.3
@@ -257,7 +257,7 @@ class SonarQubeQualityGates(RestClient):
         :return:
         """
 
-    @GET(API_QUALITYGATES_GET_BY_PROJECT_ENDPOINT)
+    @GET(API_QUALITYGATES_GET_BY_PROJECT)
     def get_quality_gate_of_project(self, project, organization=None):
         """
         SINCE 6.1

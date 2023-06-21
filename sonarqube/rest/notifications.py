@@ -3,9 +3,9 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_NOTIFICATIONS_LIST_ENDPOINT,
-    API_NOTIFICATIONS_ADD_ENDPOINT,
-    API_NOTIFICATIONS_REMOVE_ENDPOINT,
+    API_NOTIFICATIONS_LIST,
+    API_NOTIFICATIONS_ADD,
+    API_NOTIFICATIONS_REMOVE,
 )
 from sonarqube.utils.common import GET, POST
 
@@ -22,7 +22,7 @@ class SonarQubeNotifications(RestClient):
         """
         super(SonarQubeNotifications, self).__init__(**kwargs)
 
-    @GET(API_NOTIFICATIONS_LIST_ENDPOINT)
+    @GET(API_NOTIFICATIONS_LIST)
     def get_user_notifications(self, login):
         """
         SINCE 6.3
@@ -32,7 +32,7 @@ class SonarQubeNotifications(RestClient):
         :return:
         """
 
-    @POST(API_NOTIFICATIONS_ADD_ENDPOINT)
+    @POST(API_NOTIFICATIONS_ADD)
     def add_notification_for_user(self, login, type, channel="EmailNotificationChannel", project=None):
         """
         SINCE 6.3
@@ -50,7 +50,7 @@ class SonarQubeNotifications(RestClient):
         :return:
         """
 
-    @POST(API_NOTIFICATIONS_REMOVE_ENDPOINT)
+    @POST(API_NOTIFICATIONS_REMOVE)
     def remove_notification_for_user(self, login, type, channel="EmailNotificationChannel", project=None):
         """
         SINCE 6.3

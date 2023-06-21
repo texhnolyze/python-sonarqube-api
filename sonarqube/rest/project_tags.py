@@ -3,8 +3,8 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_PROJECT_TAGS_SEARCH_ENDPOINT,
-    API_PROJECT_TAGS_SET_ENDPOINT,
+    API_PROJECT_TAGS_SEARCH,
+    API_PROJECT_TAGS_SET,
 )
 from sonarqube.utils.common import GET, POST
 
@@ -21,7 +21,7 @@ class SonarQubeProjectTags(RestClient):
         """
         super(SonarQubeProjectTags, self).__init__(**kwargs)
 
-    @GET(API_PROJECT_TAGS_SEARCH_ENDPOINT)
+    @GET(API_PROJECT_TAGS_SEARCH)
     def search_project_tags(self, q=None, ps=None, p=None):
         """
         SINCE 6.4
@@ -33,7 +33,7 @@ class SonarQubeProjectTags(RestClient):
         :return:
         """
 
-    @POST(API_PROJECT_TAGS_SET_ENDPOINT)
+    @POST(API_PROJECT_TAGS_SET)
     def set_project_tags(self, project, tags):
         """
         SINCE 6.4

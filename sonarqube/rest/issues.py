@@ -3,19 +3,19 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_ISSUES_SEARCH_ENDPOINT,
-    API_ISSUES_ASSIGN_ENDPOINT,
-    API_ISSUES_DO_TRANSITION_ENDPOINT,
-    API_ISSUES_ADD_COMMENT_ENDPOINT,
-    API_ISSUES_EDIT_COMMENT_ENDPOINT,
-    API_ISSUES_DELETE_COMMENT_ENDPOINT,
-    API_ISSUES_SET_SEVERITY_ENDPOINT,
-    API_ISSUES_SET_TYPE_ENDPOINT,
-    API_ISSUES_AUTHORS_ENDPOINT,
-    API_ISSUES_BULK_CHANGE_ENDPOINT,
-    API_ISSUES_CHANGELOG_ENDPOINT,
-    API_ISSUES_SET_TAGS_ENDPOINT,
-    API_ISSUES_TAGS_ENDPOINT,
+    API_ISSUES_SEARCH,
+    API_ISSUES_ASSIGN,
+    API_ISSUES_DO_TRANSITION,
+    API_ISSUES_ADD_COMMENT,
+    API_ISSUES_EDIT_COMMENT,
+    API_ISSUES_DELETE_COMMENT,
+    API_ISSUES_SET_SEVERITY,
+    API_ISSUES_SET_TYPE,
+    API_ISSUES_AUTHORS,
+    API_ISSUES_BULK_CHANGE,
+    API_ISSUES_CHANGELOG,
+    API_ISSUES_SET_TAGS,
+    API_ISSUES_TAGS,
 )
 from sonarqube.utils.common import GET, POST
 
@@ -42,7 +42,7 @@ class SonarQubeIssues(RestClient):
             if issue["key"] == key:
                 return issue
 
-    @GET(API_ISSUES_SEARCH_ENDPOINT)
+    @GET(API_ISSUES_SEARCH)
     def search_issues(
         self,
         organization=None,
@@ -227,7 +227,7 @@ class SonarQubeIssues(RestClient):
         :return:
         """
 
-    @POST(API_ISSUES_ASSIGN_ENDPOINT)
+    @POST(API_ISSUES_ASSIGN)
     def issue_assign(self, issue, assignee=None):
         """
         SINCE 3.6
@@ -239,7 +239,7 @@ class SonarQubeIssues(RestClient):
         :return: request response
         """
 
-    @POST(API_ISSUES_SET_SEVERITY_ENDPOINT)
+    @POST(API_ISSUES_SET_SEVERITY)
     def issue_change_severity(self, issue, severity):
         """
         SINCE 3.6
@@ -257,7 +257,7 @@ class SonarQubeIssues(RestClient):
         :return: request response
         """
 
-    @POST(API_ISSUES_SET_TYPE_ENDPOINT)
+    @POST(API_ISSUES_SET_TYPE)
     def issue_set_type(self, issue, type):
         """
         SINCE 5.5
@@ -274,7 +274,7 @@ class SonarQubeIssues(RestClient):
         :return: request response
         """
 
-    @POST(API_ISSUES_ADD_COMMENT_ENDPOINT)
+    @POST(API_ISSUES_ADD_COMMENT)
     def issue_add_comment(self, issue, text):
         """
         SINCE 3.6
@@ -285,7 +285,7 @@ class SonarQubeIssues(RestClient):
         :return: request response
         """
 
-    @POST(API_ISSUES_DELETE_COMMENT_ENDPOINT)
+    @POST(API_ISSUES_DELETE_COMMENT)
     def issue_delete_comment(self, comment):
         """
         SINCE 3.6
@@ -295,7 +295,7 @@ class SonarQubeIssues(RestClient):
         :return: request response
         """
 
-    @POST(API_ISSUES_EDIT_COMMENT_ENDPOINT)
+    @POST(API_ISSUES_EDIT_COMMENT)
     def issue_edit_comment(self, comment, text):
         """
         SINCE 3.6
@@ -306,7 +306,7 @@ class SonarQubeIssues(RestClient):
         :return: request response
         """
 
-    @POST(API_ISSUES_DO_TRANSITION_ENDPOINT)
+    @POST(API_ISSUES_DO_TRANSITION)
     def issue_do_transition(self, issue, transition):
         """
         SINCE 3.6
@@ -332,7 +332,7 @@ class SonarQubeIssues(RestClient):
         :return: request response
         """
 
-    @GET(API_ISSUES_AUTHORS_ENDPOINT)
+    @GET(API_ISSUES_AUTHORS)
     def search_scm_accounts(self, project, q=None, ps=None):
         """
         SINCE 5.1
@@ -344,7 +344,7 @@ class SonarQubeIssues(RestClient):
         :return:
         """
 
-    @POST(API_ISSUES_BULK_CHANGE_ENDPOINT)
+    @POST(API_ISSUES_BULK_CHANGE)
     def issues_bulk_change(
         self,
         issues,
@@ -401,7 +401,7 @@ class SonarQubeIssues(RestClient):
         :return: request response
         """
 
-    @GET(API_ISSUES_CHANGELOG_ENDPOINT)
+    @GET(API_ISSUES_CHANGELOG)
     def get_issue_changelog(self, issue):
         """
         SINCE 4.1
@@ -411,7 +411,7 @@ class SonarQubeIssues(RestClient):
         :return:
         """
 
-    @POST(API_ISSUES_SET_TAGS_ENDPOINT)
+    @POST(API_ISSUES_SET_TAGS)
     def issue_set_tags(self, issue, tags=None):
         """
         SINCE 5.1
@@ -423,7 +423,7 @@ class SonarQubeIssues(RestClient):
         :return: request response
         """
 
-    @GET(API_ISSUES_TAGS_ENDPOINT)
+    @GET(API_ISSUES_TAGS)
     def get_issues_tags(self, project, q=None, ps=None):
         """
         SINCE 5.1

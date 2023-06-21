@@ -3,9 +3,9 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_FAVORITES_ADD_ENDPOINT,
-    API_FAVORITES_REMOVE_ENDPOINT,
-    API_FAVORITES_SEARCH_ENDPOINT,
+    API_FAVORITES_ADD,
+    API_FAVORITES_REMOVE,
+    API_FAVORITES_SEARCH,
 )
 from sonarqube.utils.common import GET, POST
 
@@ -22,7 +22,7 @@ class SonarQubeFavorites(RestClient):
         """
         super(SonarQubeFavorites, self).__init__(**kwargs)
 
-    @GET(API_FAVORITES_SEARCH_ENDPOINT)
+    @GET(API_FAVORITES_SEARCH)
     def search_favorites(self, p=None, ps=None):
         """
         SINCE 6.3
@@ -33,7 +33,7 @@ class SonarQubeFavorites(RestClient):
         :return:
         """
 
-    @POST(API_FAVORITES_ADD_ENDPOINT)
+    @POST(API_FAVORITES_ADD)
     def add_component_to_favorites(self, component):
         """
         SINCE 6.3
@@ -43,7 +43,7 @@ class SonarQubeFavorites(RestClient):
         :return:
         """
 
-    @POST(API_FAVORITES_REMOVE_ENDPOINT)
+    @POST(API_FAVORITES_REMOVE)
     def remove_component_from_favorites(self, component):
         """
         SINCE 6.3

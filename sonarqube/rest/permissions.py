@@ -3,27 +3,27 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_PERMISSIONS_ADD_GROUP_ENDPOINT,
-    API_PERMISSIONS_REMOVE_GROUP_ENDPOINT,
-    API_PERMISSIONS_USERS_ENDPOINT,
-    API_PERMISSIONS_GROUPS_ENDPOINT,
-    API_PERMISSIONS_ADD_USER_ENDPOINT,
-    API_PERMISSIONS_REMOVE_USER_ENDPOINT,
-    API_PERMISSIONS_APPLY_TEMPLATE_ENDPOINT,
-    API_PERMISSIONS_ADD_GROUP_TO_TEMPLATE_ENDPOINT,
-    API_PERMISSIONS_REMOVE_GROUP_FROM_TEMPLATE_ENDPOINT,
-    API_PERMISSIONS_ADD_PROJECT_CREATOR_TO_TEMPLATE_ENDPOINT,
-    API_PERMISSIONS_REMOVE_PROJECT_CREATOR_FROM_TEMPLATE_ENDPOINT,
-    API_PERMISSIONS_ADD_USER_TO_TEMPLATE_ENDPOINT,
-    API_PERMISSIONS_REMOVE_USER_FROM_TEMPLATE_ENDPOINT,
-    API_PERMISSIONS_BULK_APPLY_TEMPLATE_ENDPOINT,
-    API_PERMISSIONS_CREATE_TEMPLATE_ENDPOINT,
-    API_PERMISSIONS_DELETE_TEMPLATE_ENDPOINT,
-    API_PERMISSIONS_SEARCH_TEMPLATES_ENDPOINT,
-    API_PERMISSIONS_SET_DEFAULT_TEMPLATE_ENDPOINT,
-    API_PERMISSIONS_UPDATE_TEMPLATE_ENDPOINT,
-    API_PERMISSIONS_TEMPLATE_USERS_ENDPOINT,
-    API_PERMISSIONS_TEMPLATE_GROUPS_ENDPOINT,
+    API_PERMISSIONS_ADD_GROUP,
+    API_PERMISSIONS_REMOVE_GROUP,
+    API_PERMISSIONS_USERS,
+    API_PERMISSIONS_GROUPS,
+    API_PERMISSIONS_ADD_USER,
+    API_PERMISSIONS_REMOVE_USER,
+    API_PERMISSIONS_APPLY_TEMPLATE,
+    API_PERMISSIONS_ADD_GROUP_TO_TEMPLATE,
+    API_PERMISSIONS_REMOVE_GROUP_FROM_TEMPLATE,
+    API_PERMISSIONS_ADD_PROJECT_CREATOR_TO_TEMPLATE,
+    API_PERMISSIONS_REMOVE_PROJECT_CREATOR_FROM_TEMPLATE,
+    API_PERMISSIONS_ADD_USER_TO_TEMPLATE,
+    API_PERMISSIONS_REMOVE_USER_FROM_TEMPLATE,
+    API_PERMISSIONS_BULK_APPLY_TEMPLATE,
+    API_PERMISSIONS_CREATE_TEMPLATE,
+    API_PERMISSIONS_DELETE_TEMPLATE,
+    API_PERMISSIONS_SEARCH_TEMPLATES,
+    API_PERMISSIONS_SET_DEFAULT_TEMPLATE,
+    API_PERMISSIONS_UPDATE_TEMPLATE,
+    API_PERMISSIONS_TEMPLATE_USERS,
+    API_PERMISSIONS_TEMPLATE_GROUPS,
 )
 from sonarqube.utils.common import GET, POST
 
@@ -40,7 +40,7 @@ class SonarQubePermissions(RestClient):
         """
         super(SonarQubePermissions, self).__init__(**kwargs)
 
-    @POST(API_PERMISSIONS_ADD_GROUP_ENDPOINT)
+    @POST(API_PERMISSIONS_ADD_GROUP)
     def add_permission_to_group(self, groupName, permission, organization=None, projectKey=None):
         """
         SINCE 5.2
@@ -58,7 +58,7 @@ class SonarQubePermissions(RestClient):
         :return:
         """
 
-    @POST(API_PERMISSIONS_REMOVE_GROUP_ENDPOINT)
+    @POST(API_PERMISSIONS_REMOVE_GROUP)
     def remove_permission_from_group(self, groupName, permission, organization=None, projectKey=None):
         """
         SINCE 5.2
@@ -76,7 +76,7 @@ class SonarQubePermissions(RestClient):
         :return:
         """
 
-    @POST(API_PERMISSIONS_ADD_USER_ENDPOINT)
+    @POST(API_PERMISSIONS_ADD_USER)
     def add_permission_to_user(self, login, permission, organization=None, projectKey=None):
         """
         SINCE 5.2
@@ -93,7 +93,7 @@ class SonarQubePermissions(RestClient):
         :return:
         """
 
-    @GET(API_PERMISSIONS_USERS_ENDPOINT)
+    @GET(API_PERMISSIONS_USERS)
     def get_users_permissions(self, permission=None, projectKey=None, q=None, p=None, ps=None):
         """
         INTERNAL SINCE 5.2
@@ -112,7 +112,7 @@ class SonarQubePermissions(RestClient):
         :return:
         """
 
-    @GET(API_PERMISSIONS_GROUPS_ENDPOINT)
+    @GET(API_PERMISSIONS_GROUPS)
     def get_groups_permissions(self, permission=None, projectKey=None, q=None, p=None, ps=None):
         """
         INTERNAL SINCE 5.2
@@ -132,7 +132,7 @@ class SonarQubePermissions(RestClient):
         :return:
         """
 
-    @POST(API_PERMISSIONS_REMOVE_USER_ENDPOINT)
+    @POST(API_PERMISSIONS_REMOVE_USER)
     def remove_permission_from_user(self, login, permission, organization=None, projectKey=None):
         """
         SINCE 5.2
@@ -149,7 +149,7 @@ class SonarQubePermissions(RestClient):
         :return:
         """
 
-    @POST(API_PERMISSIONS_APPLY_TEMPLATE_ENDPOINT)
+    @POST(API_PERMISSIONS_APPLY_TEMPLATE)
     def apply_template_to_project(self, templateName, projectKey, organization=None):
         """
         SINCE 5.2
@@ -161,7 +161,7 @@ class SonarQubePermissions(RestClient):
         :return:
         """
 
-    @POST(API_PERMISSIONS_BULK_APPLY_TEMPLATE_ENDPOINT)
+    @POST(API_PERMISSIONS_BULK_APPLY_TEMPLATE)
     def apply_template_to_projects(
         self,
         templateName,
@@ -193,7 +193,7 @@ class SonarQubePermissions(RestClient):
         :return:
         """
 
-    @POST(API_PERMISSIONS_ADD_GROUP_TO_TEMPLATE_ENDPOINT)
+    @POST(API_PERMISSIONS_ADD_GROUP_TO_TEMPLATE)
     def add_group_to_template(self, groupName, templateName, permission, organization=None):
         """
         SINCE 5.2
@@ -208,7 +208,7 @@ class SonarQubePermissions(RestClient):
         :return:
         """
 
-    @POST(API_PERMISSIONS_REMOVE_GROUP_FROM_TEMPLATE_ENDPOINT)
+    @POST(API_PERMISSIONS_REMOVE_GROUP_FROM_TEMPLATE)
     def remove_group_from_template(self, groupName, templateName, permission, organization=None):
         """
         SINCE 5.2
@@ -223,7 +223,7 @@ class SonarQubePermissions(RestClient):
         :return:
         """
 
-    @POST(API_PERMISSIONS_ADD_PROJECT_CREATOR_TO_TEMPLATE_ENDPOINT)
+    @POST(API_PERMISSIONS_ADD_PROJECT_CREATOR_TO_TEMPLATE)
     def add_project_creator_to_template(self, templateName, permission, organization=None):
         """
         SINCE 6.0
@@ -237,7 +237,7 @@ class SonarQubePermissions(RestClient):
         :return:
         """
 
-    @POST(API_PERMISSIONS_REMOVE_PROJECT_CREATOR_FROM_TEMPLATE_ENDPOINT)
+    @POST(API_PERMISSIONS_REMOVE_PROJECT_CREATOR_FROM_TEMPLATE)
     def remove_project_creator_from_template(self, templateName, permission, organization=None):
         """
         SINCE 6.0
@@ -251,7 +251,7 @@ class SonarQubePermissions(RestClient):
         :return:
         """
 
-    @POST(API_PERMISSIONS_ADD_USER_TO_TEMPLATE_ENDPOINT)
+    @POST(API_PERMISSIONS_ADD_USER_TO_TEMPLATE)
     def add_user_to_template(self, login, templateName, permission, organization=None):
         """
         SINCE 5.2
@@ -266,7 +266,7 @@ class SonarQubePermissions(RestClient):
         :return:
         """
 
-    @POST(API_PERMISSIONS_REMOVE_USER_FROM_TEMPLATE_ENDPOINT)
+    @POST(API_PERMISSIONS_REMOVE_USER_FROM_TEMPLATE)
     def remove_user_from_template(self, login, templateName, permission, organization=None):
         """
         SINCE 5.2
@@ -281,7 +281,7 @@ class SonarQubePermissions(RestClient):
         :return:
         """
 
-    @POST(API_PERMISSIONS_CREATE_TEMPLATE_ENDPOINT)
+    @POST(API_PERMISSIONS_CREATE_TEMPLATE)
     def create_template(self, name, organization=None, description=None, projectKeyPattern=None):
         """
         SINCE 5.2
@@ -294,7 +294,7 @@ class SonarQubePermissions(RestClient):
         :return: request response.
         """
 
-    @POST(API_PERMISSIONS_DELETE_TEMPLATE_ENDPOINT)
+    @POST(API_PERMISSIONS_DELETE_TEMPLATE)
     def delete_template(self, templateName, organization=None):
         """
         SINCE 5.2
@@ -305,7 +305,7 @@ class SonarQubePermissions(RestClient):
         :return:
         """
 
-    @GET(API_PERMISSIONS_SEARCH_TEMPLATES_ENDPOINT)
+    @GET(API_PERMISSIONS_SEARCH_TEMPLATES)
     def search_templates(self, organization=None, q=None):
         """
         SINCE 5.2
@@ -316,7 +316,7 @@ class SonarQubePermissions(RestClient):
         :return: defaultTemplates, permissionTemplates, permissions
         """
 
-    @GET(API_PERMISSIONS_TEMPLATE_USERS_ENDPOINT)
+    @GET(API_PERMISSIONS_TEMPLATE_USERS)
     def get_template_users(self, templateId, permission=None, p=None, ps=None):
         """
         INTERNAL SINCE 5.2
@@ -329,7 +329,7 @@ class SonarQubePermissions(RestClient):
         return: users
         """
 
-    @GET(API_PERMISSIONS_TEMPLATE_GROUPS_ENDPOINT)
+    @GET(API_PERMISSIONS_TEMPLATE_GROUPS)
     def get_template_groups(self, templateId, permission=None, p=None, ps=None):
         """
         INTERNAL SINCE 5.2
@@ -342,7 +342,7 @@ class SonarQubePermissions(RestClient):
         return: groups
         """
 
-    @POST(API_PERMISSIONS_SET_DEFAULT_TEMPLATE_ENDPOINT)
+    @POST(API_PERMISSIONS_SET_DEFAULT_TEMPLATE)
     def set_default_template(self, templateName, organization=None, qualifier="TRK"):
         """
         SINCE 5.2
@@ -357,7 +357,7 @@ class SonarQubePermissions(RestClient):
         :return:
         """
 
-    @POST(API_PERMISSIONS_UPDATE_TEMPLATE_ENDPOINT)
+    @POST(API_PERMISSIONS_UPDATE_TEMPLATE)
     def update_template(self, id, name=None, description=None, projectKeyPattern=None):
         """
         SINCE 5.2

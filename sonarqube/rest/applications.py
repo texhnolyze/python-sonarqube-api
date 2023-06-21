@@ -3,16 +3,16 @@
 # @Author: Jacek Hojczak
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_APPLICATIONS_CREATE_ENDPOINT,
-    API_APPLICATIONS_DELETE_ENDPOINT,
-    API_APPLICATIONS_SHOW_ENDPOINT,
-    API_APPLICATIONS_UPDATE_ENDPOINT,
-    API_APPLICATIONS_ADD_PROJECT_ENDPOINT,
-    API_APPLICATIONS_REMOVE_PROJECT_ENDPOINT,
-    API_APPLICATIONS_CREATE_BRANCH_ENDPOINT,
-    API_APPLICATIONS_DELETE_BRANCH_ENDPOINT,
-    API_APPLICATIONS_SET_TAGS_ENDPOINT,
-    API_APPLICATIONS_UPDATE_BRANCH_ENDPOINT,
+    API_APPLICATIONS_CREATE,
+    API_APPLICATIONS_DELETE,
+    API_APPLICATIONS_SHOW,
+    API_APPLICATIONS_UPDATE,
+    API_APPLICATIONS_ADD_PROJECT,
+    API_APPLICATIONS_REMOVE_PROJECT,
+    API_APPLICATIONS_CREATE_BRANCH,
+    API_APPLICATIONS_DELETE_BRANCH,
+    API_APPLICATIONS_SET_TAGS,
+    API_APPLICATIONS_UPDATE_BRANCH,
 )
 from sonarqube.utils.common import POST, GET
 
@@ -29,7 +29,7 @@ class SonarQubeApplications(RestClient):
         """
         super(SonarQubeApplications, self).__init__(**kwargs)
 
-    @POST(API_APPLICATIONS_CREATE_ENDPOINT)
+    @POST(API_APPLICATIONS_CREATE)
     def create_application(self, name, key=None, visibility=None, description=None):
         """
         SINCE 7.3
@@ -47,7 +47,7 @@ class SonarQubeApplications(RestClient):
         :return: request response
         """
 
-    @POST(API_APPLICATIONS_DELETE_ENDPOINT)
+    @POST(API_APPLICATIONS_DELETE)
     def delete_application(self, application):
         """
         SINCE 7.3
@@ -57,7 +57,7 @@ class SonarQubeApplications(RestClient):
         :return:
         """
 
-    @GET(API_APPLICATIONS_SHOW_ENDPOINT)
+    @GET(API_APPLICATIONS_SHOW)
     def show_application(self, application, branch=None):
         """
         SINCE 7.3
@@ -68,7 +68,7 @@ class SonarQubeApplications(RestClient):
         :return:
         """
 
-    @POST(API_APPLICATIONS_ADD_PROJECT_ENDPOINT)
+    @POST(API_APPLICATIONS_ADD_PROJECT)
     def add_project(self, application, project):
         """
         SINCE 7.3
@@ -79,7 +79,7 @@ class SonarQubeApplications(RestClient):
         :return:
         """
 
-    @POST(API_APPLICATIONS_REMOVE_PROJECT_ENDPOINT)
+    @POST(API_APPLICATIONS_REMOVE_PROJECT)
     def remove_project(self, application, project):
         """
         SINCE 7.3
@@ -90,7 +90,7 @@ class SonarQubeApplications(RestClient):
         :return:
         """
 
-    @POST(API_APPLICATIONS_CREATE_BRANCH_ENDPOINT)
+    @POST(API_APPLICATIONS_CREATE_BRANCH)
     def create_branch(self, application, branch, project, projectBranch):
         """
         SINCE 7.3
@@ -105,7 +105,7 @@ class SonarQubeApplications(RestClient):
         :return:
         """
 
-    @POST(API_APPLICATIONS_DELETE_BRANCH_ENDPOINT)
+    @POST(API_APPLICATIONS_DELETE_BRANCH)
     def delete_branch(self, application, branch):
         """
         SINCE 7.3
@@ -118,7 +118,7 @@ class SonarQubeApplications(RestClient):
         :return:
         """
 
-    @POST(API_APPLICATIONS_UPDATE_BRANCH_ENDPOINT)
+    @POST(API_APPLICATIONS_UPDATE_BRANCH)
     def update_branch(self, application, branch, name, project, projectBranch):
         """
         SINCE 7.3
@@ -134,7 +134,7 @@ class SonarQubeApplications(RestClient):
         :return:
         """
 
-    @POST(API_APPLICATIONS_UPDATE_ENDPOINT)
+    @POST(API_APPLICATIONS_UPDATE)
     def update_application(self, application, name, description=None):
         """
         SINCE 7.3
@@ -147,7 +147,7 @@ class SonarQubeApplications(RestClient):
         :return:
         """
 
-    @POST(API_APPLICATIONS_SET_TAGS_ENDPOINT)
+    @POST(API_APPLICATIONS_SET_TAGS)
     def set_tags(self, application, tags):
         """
         SINCE 8.3

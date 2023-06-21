@@ -3,9 +3,9 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_MEASURES_COMPONENT_ENDPOINT,
-    API_MEASURES_COMPONENT_TREE_ENDPOINT,
-    API_MEASURES_SEARCH_HISTORY_ENDPOINT,
+    API_MEASURES_COMPONENT,
+    API_MEASURES_COMPONENT_TREE,
+    API_MEASURES_SEARCH_HISTORY,
 )
 from sonarqube.utils.common import GET
 
@@ -24,7 +24,7 @@ class SonarQubeMeasures(RestClient):
         """
         super(SonarQubeMeasures, self).__init__(**kwargs)
 
-    @GET(API_MEASURES_COMPONENT_ENDPOINT)
+    @GET(API_MEASURES_COMPONENT)
     def get_component_with_specified_measures(
         self,
         component,
@@ -46,7 +46,7 @@ class SonarQubeMeasures(RestClient):
         :return:
         """
 
-    @GET(API_MEASURES_COMPONENT_TREE_ENDPOINT)
+    @GET(API_MEASURES_COMPONENT_TREE)
     def get_component_tree_with_specified_measures(
         self,
         component,
@@ -117,7 +117,7 @@ class SonarQubeMeasures(RestClient):
         :return:
         """
 
-    @GET(API_MEASURES_SEARCH_HISTORY_ENDPOINT)
+    @GET(API_MEASURES_SEARCH_HISTORY)
     def search_measures_history(
         self,
         component,

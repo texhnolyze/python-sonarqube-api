@@ -3,13 +3,13 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_PROJECT_ANALYSES_CREATE_EVENT_ENDPOINT,
-    API_PROJECT_ANALYSES_DELETE_ENDPOINT,
-    API_PROJECT_ANALYSES_DELETE_EVENT_ENDPOINT,
-    API_PROJECT_ANALYSES_SEARCH_ENDPOINT,
-    API_PROJECT_ANALYSES_SET_BASELINE_ENDPOINT,
-    API_PROJECT_ANALYSES_UNSET_BASELINE_ENDPOINT,
-    API_PROJECT_ANALYSES_UPDATE_EVENT_ENDPOINT,
+    API_PROJECT_ANALYSES_CREATE_EVENT,
+    API_PROJECT_ANALYSES_DELETE,
+    API_PROJECT_ANALYSES_DELETE_EVENT,
+    API_PROJECT_ANALYSES_SEARCH,
+    API_PROJECT_ANALYSES_SET_BASELINE,
+    API_PROJECT_ANALYSES_UNSET_BASELINE,
+    API_PROJECT_ANALYSES_UPDATE_EVENT,
 )
 from sonarqube.utils.common import GET, POST
 
@@ -28,7 +28,7 @@ class SonarQubeProjectAnalyses(RestClient):
         """
         super(SonarQubeProjectAnalyses, self).__init__(**kwargs)
 
-    @POST(API_PROJECT_ANALYSES_CREATE_EVENT_ENDPOINT)
+    @POST(API_PROJECT_ANALYSES_CREATE_EVENT)
     def create_project_analysis_event(self, analysis, name, category="OTHER"):
         """
         SINCE 6.3
@@ -44,7 +44,7 @@ class SonarQubeProjectAnalyses(RestClient):
         :return: request response
         """
 
-    @POST(API_PROJECT_ANALYSES_DELETE_ENDPOINT)
+    @POST(API_PROJECT_ANALYSES_DELETE)
     def delete_project_analysis(self, analysis):
         """
         SINCE 6.3
@@ -54,7 +54,7 @@ class SonarQubeProjectAnalyses(RestClient):
         :return:
         """
 
-    @POST(API_PROJECT_ANALYSES_DELETE_EVENT_ENDPOINT)
+    @POST(API_PROJECT_ANALYSES_DELETE_EVENT)
     def delete_project_analysis_event(self, event):
         """
         SINCE 6.3
@@ -64,7 +64,7 @@ class SonarQubeProjectAnalyses(RestClient):
         :return:
         """
 
-    @GET(API_PROJECT_ANALYSES_SEARCH_ENDPOINT)
+    @GET(API_PROJECT_ANALYSES_SEARCH)
     def search_project_analyses_and_events(
         self, project, branch=None, category=None, from_date=None, to_date=None, p=None, ps=None
     ):
@@ -90,7 +90,7 @@ class SonarQubeProjectAnalyses(RestClient):
         :return:
         """
 
-    @POST(API_PROJECT_ANALYSES_SET_BASELINE_ENDPOINT)
+    @POST(API_PROJECT_ANALYSES_SET_BASELINE)
     def set_analysis_as_baseline_on_project(self, project, analysis, branch=None):
         """
         SINCE 7.7
@@ -104,7 +104,7 @@ class SonarQubeProjectAnalyses(RestClient):
         :return:
         """
 
-    @POST(API_PROJECT_ANALYSES_UNSET_BASELINE_ENDPOINT)
+    @POST(API_PROJECT_ANALYSES_UNSET_BASELINE)
     def unset_baseline_on_project(self, project, branch=None):
         """
         SINCE 7.7
@@ -117,7 +117,7 @@ class SonarQubeProjectAnalyses(RestClient):
         :return:
         """
 
-    @POST(API_PROJECT_ANALYSES_UPDATE_EVENT_ENDPOINT)
+    @POST(API_PROJECT_ANALYSES_UPDATE_EVENT)
     def update_project_analysis_event(self, event, name):
         """
         SINCE 6.3

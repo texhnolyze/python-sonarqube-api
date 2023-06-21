@@ -3,12 +3,12 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_WEBHOOKS_CREATE_ENDPOINT,
-    API_WEBHOOKS_DELETE_ENDPOINT,
-    API_WEBHOOKS_DELIVERIES_ENDPOINT,
-    API_WEBHOOKS_DELIVERY_ENDPOINT,
-    API_WEBHOOKS_LIST_ENDPOINT,
-    API_WEBHOOKS_UPDATE_ENDPOINT,
+    API_WEBHOOKS_CREATE,
+    API_WEBHOOKS_DELETE,
+    API_WEBHOOKS_DELIVERIES,
+    API_WEBHOOKS_DELIVERY,
+    API_WEBHOOKS_LIST,
+    API_WEBHOOKS_UPDATE,
 )
 from sonarqube.utils.common import GET, POST
 
@@ -25,7 +25,7 @@ class SonarQubeWebhooks(RestClient):
         """
         super(SonarQubeWebhooks, self).__init__(**kwargs)
 
-    @POST(API_WEBHOOKS_CREATE_ENDPOINT)
+    @POST(API_WEBHOOKS_CREATE)
     def create_webhook(self, name, url, organization=None, project=None, secret=None):
         """
         SINCE 7.1
@@ -42,7 +42,7 @@ class SonarQubeWebhooks(RestClient):
         :return: request response
         """
 
-    @POST(API_WEBHOOKS_DELETE_ENDPOINT)
+    @POST(API_WEBHOOKS_DELETE)
     def delete_webhook(self, webhook):
         """
         SINCE 7.1
@@ -53,7 +53,7 @@ class SonarQubeWebhooks(RestClient):
         :return:
         """
 
-    @GET(API_WEBHOOKS_DELIVERIES_ENDPOINT)
+    @GET(API_WEBHOOKS_DELIVERIES)
     def get_webhook_deliveries(self, webhook=None, componentKey=None, ceTaskId=None, p=None, ps=None):
         """
         SINCE 6.2
@@ -67,7 +67,7 @@ class SonarQubeWebhooks(RestClient):
         :return:
         """
 
-    @GET(API_WEBHOOKS_DELIVERY_ENDPOINT)
+    @GET(API_WEBHOOKS_DELIVERY)
     def get_webhook_delivery(self, deliveryId):
         """
         SINCE 6.2
@@ -77,7 +77,7 @@ class SonarQubeWebhooks(RestClient):
         :return:
         """
 
-    @GET(API_WEBHOOKS_LIST_ENDPOINT)
+    @GET(API_WEBHOOKS_LIST)
     def search_webhooks(self, organization=None, project=None):
         """
         SINCE 7.1
@@ -88,7 +88,7 @@ class SonarQubeWebhooks(RestClient):
         :return:
         """
 
-    @POST(API_WEBHOOKS_UPDATE_ENDPOINT)
+    @POST(API_WEBHOOKS_UPDATE)
     def update_webhook(self, webhook, name, url, secret=None):
         """
         SINCE 7.1

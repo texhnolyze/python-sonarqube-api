@@ -3,27 +3,27 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_QUALITYPROFILES_ACTIVATE_RULE_ENDPOINT,
-    API_QUALITYPROFILES_SEARCH_ENDPOINT,
-    API_QUALITYPROFILES_DELETE_ENDPOINT,
-    API_QUALITYPROFILES_SET_DEFAULT_ENDPOINT,
-    API_QUALITYPROFILES_ADD_PROJECT_ENDPOINT,
-    API_QUALITYPROFILES_BACKUP_ENDPOINT,
-    API_QUALITYPROFILES_CHANGE_PARENT_ENDPOINT,
-    API_QUALITYPROFILES_CHANGELOG_ENDPOINT,
-    API_QUALITYPROFILES_COPY_ENDPOINT,
-    API_QUALITYPROFILES_CREATE_ENDPOINT,
-    API_QUALITYPROFILES_DEACTIVATE_RULE_ENDPOINT,
-    API_QUALITYPROFILES_EXPORT_ENDPOINT,
-    API_QUALITYPROFILES_EXPORTERS_ENDPOINT,
-    API_QUALITYPROFILES_IMPORTERS_ENDPOINT,
-    API_QUALITYPROFILES_INHERITANCE_ENDPOINT,
-    API_QUALITYPROFILES_REMOVE_PROJECT_ENDPOINT,
-    API_QUALITYPROFILES_PROJECTS_ENDPOINT,
-    API_QUALITYPROFILES_RENAME_ENDPOINT,
-    API_QUALITYPROFILES_RESTORE_ENDPOINT,
-    API_QUALITYPROFILES_ADD_USER_ENDPOINT,
-    API_QUALITYPROFILES_ADD_GROUP_ENDPOINT,
+    API_QUALITYPROFILES_ACTIVATE_RULE,
+    API_QUALITYPROFILES_SEARCH,
+    API_QUALITYPROFILES_DELETE,
+    API_QUALITYPROFILES_SET_DEFAULT,
+    API_QUALITYPROFILES_ADD_PROJECT,
+    API_QUALITYPROFILES_BACKUP,
+    API_QUALITYPROFILES_CHANGE_PARENT,
+    API_QUALITYPROFILES_CHANGELOG,
+    API_QUALITYPROFILES_COPY,
+    API_QUALITYPROFILES_CREATE,
+    API_QUALITYPROFILES_DEACTIVATE_RULE,
+    API_QUALITYPROFILES_EXPORT,
+    API_QUALITYPROFILES_EXPORTERS,
+    API_QUALITYPROFILES_IMPORTERS,
+    API_QUALITYPROFILES_INHERITANCE,
+    API_QUALITYPROFILES_REMOVE_PROJECT,
+    API_QUALITYPROFILES_PROJECTS,
+    API_QUALITYPROFILES_RENAME,
+    API_QUALITYPROFILES_RESTORE,
+    API_QUALITYPROFILES_ADD_USER,
+    API_QUALITYPROFILES_ADD_GROUP,
 )
 from sonarqube.utils.common import GET, POST
 
@@ -72,9 +72,9 @@ class SonarQubeQualityProfiles(RestClient):
             if params:
                 data["params"] = params
 
-        return self._post(API_QUALITYPROFILES_ACTIVATE_RULE_ENDPOINT, data=data)
+        return self._post(API_QUALITYPROFILES_ACTIVATE_RULE, data=data)
 
-    @POST(API_QUALITYPROFILES_ADD_USER_ENDPOINT)
+    @POST(API_QUALITYPROFILES_ADD_USER)
     def add_user_to_quality_profile(self, login, language, qualityProfile):
         """
         INTERNAL SINCE 6.6
@@ -86,7 +86,7 @@ class SonarQubeQualityProfiles(RestClient):
         :return:
         """
 
-    @POST(API_QUALITYPROFILES_ADD_GROUP_ENDPOINT)
+    @POST(API_QUALITYPROFILES_ADD_GROUP)
     def add_group_to_quality_profile(self, group, language, qualityProfile):
         """
         INTERNAL SINCE 6.6
@@ -98,7 +98,7 @@ class SonarQubeQualityProfiles(RestClient):
         :return:
         """
 
-    @GET(API_QUALITYPROFILES_SEARCH_ENDPOINT)
+    @GET(API_QUALITYPROFILES_SEARCH)
     def search_quality_profiles(self, organization=None, defaults="false", language=None, project=None, qualityProfile=None):
         """
         SINCE 5.2
@@ -113,7 +113,7 @@ class SonarQubeQualityProfiles(RestClient):
         :return:
         """
 
-    @POST(API_QUALITYPROFILES_SET_DEFAULT_ENDPOINT)
+    @POST(API_QUALITYPROFILES_SET_DEFAULT)
     def set_default_quality_profile(self, language, qualityProfile, organization=None):
         """
         SINCE 5.2
@@ -125,7 +125,7 @@ class SonarQubeQualityProfiles(RestClient):
         :return:
         """
 
-    @POST(API_QUALITYPROFILES_ADD_PROJECT_ENDPOINT)
+    @POST(API_QUALITYPROFILES_ADD_PROJECT)
     def associate_project_with_quality_profile(self, project, language, qualityProfile, organization=None):
         """
         SINCE 5.2
@@ -138,7 +138,7 @@ class SonarQubeQualityProfiles(RestClient):
         :return:
         """
 
-    @POST(API_QUALITYPROFILES_REMOVE_PROJECT_ENDPOINT)
+    @POST(API_QUALITYPROFILES_REMOVE_PROJECT)
     def remove_project_associate_with_quality_profile(self, project, language, qualityProfile, organization=None):
         """
         SINCE 5.2
@@ -151,7 +151,7 @@ class SonarQubeQualityProfiles(RestClient):
         :return:
         """
 
-    @GET(API_QUALITYPROFILES_BACKUP_ENDPOINT)
+    @GET(API_QUALITYPROFILES_BACKUP)
     def backup_quality_profile(self, language, qualityProfile, organization=None):
         """
         SINCE 5.2
@@ -163,7 +163,7 @@ class SonarQubeQualityProfiles(RestClient):
         :return:
         """
 
-    @POST(API_QUALITYPROFILES_CHANGE_PARENT_ENDPOINT)
+    @POST(API_QUALITYPROFILES_CHANGE_PARENT)
     def change_parent_of_quality_profile(self, parentQualityProfile, language, qualityProfile, organization=None):
         """
         SINCE 5.2
@@ -176,7 +176,7 @@ class SonarQubeQualityProfiles(RestClient):
         :return:
         """
 
-    @GET(API_QUALITYPROFILES_CHANGELOG_ENDPOINT)
+    @GET(API_QUALITYPROFILES_CHANGELOG)
     def get_history_of_changes_on_quality_profile(
         self, language, qualityProfile, organization=None, since=None, to=None, p=None, ps=None
     ):
@@ -195,7 +195,7 @@ class SonarQubeQualityProfiles(RestClient):
         :return:
         """
 
-    @POST(API_QUALITYPROFILES_COPY_ENDPOINT)
+    @POST(API_QUALITYPROFILES_COPY)
     def copy_quality_profile(self, fromKey, toName):
         """
         SINCE 5.2
@@ -206,7 +206,7 @@ class SonarQubeQualityProfiles(RestClient):
         :return: request response
         """
 
-    @POST(API_QUALITYPROFILES_CREATE_ENDPOINT)
+    @POST(API_QUALITYPROFILES_CREATE)
     def create_quality_profile(self, language, name, organization=None):
         """
         SINCE 5.2
@@ -218,7 +218,7 @@ class SonarQubeQualityProfiles(RestClient):
         :return: request response
         """
 
-    @POST(API_QUALITYPROFILES_DEACTIVATE_RULE_ENDPOINT)
+    @POST(API_QUALITYPROFILES_DEACTIVATE_RULE)
     def deactivate_rule_on_quality_profile(self, key, rule):
         """
         SINCE 4.4
@@ -229,7 +229,7 @@ class SonarQubeQualityProfiles(RestClient):
         :return:
         """
 
-    @POST(API_QUALITYPROFILES_DELETE_ENDPOINT)
+    @POST(API_QUALITYPROFILES_DELETE)
     def delete_quality_profile(self, language, qualityProfile, organization=None):
         """
         SINCE 5.2
@@ -242,7 +242,7 @@ class SonarQubeQualityProfiles(RestClient):
         :return:
         """
 
-    @GET(API_QUALITYPROFILES_EXPORT_ENDPOINT)
+    @GET(API_QUALITYPROFILES_EXPORT)
     def export_quality_profile(self, exporterKey=None, language=None, qualityProfile=None, organization=None):
         """
         SINCE 5.2
@@ -264,7 +264,7 @@ class SonarQubeQualityProfiles(RestClient):
         :return:
         """
 
-    @GET(API_QUALITYPROFILES_EXPORTERS_ENDPOINT)
+    @GET(API_QUALITYPROFILES_EXPORTERS)
     def get_supported_exporters(self):
         """
         SINCE 5.2
@@ -273,7 +273,7 @@ class SonarQubeQualityProfiles(RestClient):
         :return:
         """
 
-    @GET(API_QUALITYPROFILES_IMPORTERS_ENDPOINT)
+    @GET(API_QUALITYPROFILES_IMPORTERS)
     def get_supported_importers(self):
         """
         SINCE 5.2
@@ -282,7 +282,7 @@ class SonarQubeQualityProfiles(RestClient):
         :return:
         """
 
-    @GET(API_QUALITYPROFILES_INHERITANCE_ENDPOINT)
+    @GET(API_QUALITYPROFILES_INHERITANCE)
     def show_quality_profile(self, language, qualityProfile, organization=None):
         """
         SINCE 5.2
@@ -294,7 +294,7 @@ class SonarQubeQualityProfiles(RestClient):
         :return:
         """
 
-    @GET(API_QUALITYPROFILES_PROJECTS_ENDPOINT)
+    @GET(API_QUALITYPROFILES_PROJECTS)
     def get_projects_associate_with_quality_profile(self, key, q=None, selected="selected", p=None, ps=None):
         """
         SINCE 5.2
@@ -314,7 +314,7 @@ class SonarQubeQualityProfiles(RestClient):
         :return:
         """
 
-    @POST(API_QUALITYPROFILES_RENAME_ENDPOINT)
+    @POST(API_QUALITYPROFILES_RENAME)
     def rename_quality_profile(self, key, name):
         """
         SINCE 5.2
@@ -342,4 +342,4 @@ class SonarQubeQualityProfiles(RestClient):
 
         files = {"backup": backup}
 
-        return self._post(API_QUALITYPROFILES_RESTORE_ENDPOINT, data=data, files=files)
+        return self._post(API_QUALITYPROFILES_RESTORE, data=data, files=files)

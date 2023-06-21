@@ -3,16 +3,16 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_SYSTEM_CHANGE_LOG_LEVEL_ENDPOINT,
-    API_SYSTEM_DB_MIGRATION_STATUS_ENDPOINT,
-    API_SYSTEM_HEALTH_ENDPOINT,
-    API_SYSTEM_LOGS_ENDPOINT,
-    API_SYSTEM_MIGRATE_DB_ENDPOINT,
-    API_SYSTEM_PING_ENDPOINT,
-    API_SYSTEM_RESTART_ENDPOINT,
-    API_SYSTEM_STATUS_ENDPOINT,
-    API_SYSTEM_UPGRADES_ENDPOINT,
-    API_SYSTEM_INFO_ENDPOINT,
+    API_SYSTEM_CHANGE_LOG_LEVEL,
+    API_SYSTEM_DB_MIGRATION_STATUS,
+    API_SYSTEM_HEALTH,
+    API_SYSTEM_LOGS,
+    API_SYSTEM_MIGRATE_DB,
+    API_SYSTEM_PING,
+    API_SYSTEM_RESTART,
+    API_SYSTEM_STATUS,
+    API_SYSTEM_UPGRADES,
+    API_SYSTEM_INFO,
 )
 from sonarqube.utils.common import GET, POST
 
@@ -29,7 +29,7 @@ class SonarQubeSystem(RestClient):
         """
         super(SonarQubeSystem, self).__init__(**kwargs)
 
-    @POST(API_SYSTEM_CHANGE_LOG_LEVEL_ENDPOINT)
+    @POST(API_SYSTEM_CHANGE_LOG_LEVEL)
     def change_log_level(self, level):
         """
         SINCE 5.2
@@ -40,7 +40,7 @@ class SonarQubeSystem(RestClient):
         :return:
         """
 
-    @POST(API_SYSTEM_DB_MIGRATION_STATUS_ENDPOINT)
+    @POST(API_SYSTEM_DB_MIGRATION_STATUS)
     def get_database_migration_status(self):
         """
         SINCE 5.2
@@ -57,7 +57,7 @@ class SonarQubeSystem(RestClient):
         :return:
         """
 
-    @POST(API_SYSTEM_HEALTH_ENDPOINT)
+    @POST(API_SYSTEM_HEALTH)
     def get_health_status(self):
         """
         SINCE 6.6
@@ -70,7 +70,7 @@ class SonarQubeSystem(RestClient):
         :return:
         """
 
-    @GET(API_SYSTEM_LOGS_ENDPOINT)
+    @GET(API_SYSTEM_LOGS)
     def get_logs(self, process="app"):
         """
         SINCE 5.2
@@ -80,7 +80,7 @@ class SonarQubeSystem(RestClient):
         :return:
         """
 
-    @POST(API_SYSTEM_MIGRATE_DB_ENDPOINT)
+    @POST(API_SYSTEM_MIGRATE_DB)
     def migrate_database(self):
         """
         SINCE 5.2
@@ -99,7 +99,7 @@ class SonarQubeSystem(RestClient):
         :return: request response
         """
 
-    @GET(API_SYSTEM_PING_ENDPOINT)
+    @GET(API_SYSTEM_PING)
     def ping_server(self):
         """
         SINCE 6.3
@@ -108,7 +108,7 @@ class SonarQubeSystem(RestClient):
         :return:
         """
 
-    @POST(API_SYSTEM_RESTART_ENDPOINT)
+    @POST(API_SYSTEM_RESTART)
     def restart_server(self):
         """
         SINCE 4.3
@@ -117,7 +117,7 @@ class SonarQubeSystem(RestClient):
         :return:
         """
 
-    @GET(API_SYSTEM_STATUS_ENDPOINT)
+    @GET(API_SYSTEM_STATUS)
     def get_server_state(self):
         """
         SINCE 5.2
@@ -137,7 +137,7 @@ class SonarQubeSystem(RestClient):
         :return:
         """
 
-    @GET(API_SYSTEM_UPGRADES_ENDPOINT)
+    @GET(API_SYSTEM_UPGRADES)
     def get_available_upgrades(self):
         """
         SINCE 5.2
@@ -148,7 +148,7 @@ class SonarQubeSystem(RestClient):
         :return:
         """
 
-    @GET(API_SYSTEM_INFO_ENDPOINT)
+    @GET(API_SYSTEM_INFO)
     def get_detailed_information(self):
         """
         SINCE 5.1

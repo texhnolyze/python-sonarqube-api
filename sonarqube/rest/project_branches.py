@@ -3,10 +3,10 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_PROJECT_BRANCHES_LIST_ENDPOINT,
-    API_PROJECT_BRANCHES_DELETE_ENDPOINT,
-    API_PROJECT_BRANCHES_RENAME_ENDPOINT,
-    API_PROJECT_BRANCHES_SET_PROTECTION_ENDPOINT,
+    API_PROJECT_BRANCHES_LIST,
+    API_PROJECT_BRANCHES_DELETE,
+    API_PROJECT_BRANCHES_RENAME,
+    API_PROJECT_BRANCHES_SET_PROTECTION,
 )
 from sonarqube.utils.common import GET, POST
 
@@ -23,7 +23,7 @@ class SonarQubeProjectBranches(RestClient):
         """
         super(SonarQubeProjectBranches, self).__init__(**kwargs)
 
-    @GET(API_PROJECT_BRANCHES_LIST_ENDPOINT)
+    @GET(API_PROJECT_BRANCHES_LIST)
     def search_project_branches(self, project):
         """
         SINCE 6.6
@@ -33,7 +33,7 @@ class SonarQubeProjectBranches(RestClient):
         :return:
         """
 
-    @POST(API_PROJECT_BRANCHES_DELETE_ENDPOINT)
+    @POST(API_PROJECT_BRANCHES_DELETE)
     def delete_project_branch(self, project, branch):
         """
         SINCE 6.6
@@ -44,7 +44,7 @@ class SonarQubeProjectBranches(RestClient):
         :return:
         """
 
-    @POST(API_PROJECT_BRANCHES_RENAME_ENDPOINT)
+    @POST(API_PROJECT_BRANCHES_RENAME)
     def rename_project_branch(self, project, name):
         """
         SINCE 6.6
@@ -55,7 +55,7 @@ class SonarQubeProjectBranches(RestClient):
         :return:
         """
 
-    @POST(API_PROJECT_BRANCHES_SET_PROTECTION_ENDPOINT)
+    @POST(API_PROJECT_BRANCHES_SET_PROTECTION)
     def set_automatic_deletion_protection_for_project_branch(self, project, branch, value):
         """
         SINCE 8.1

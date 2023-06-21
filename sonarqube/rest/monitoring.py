@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
-from sonarqube.utils.config import API_MONITORING_METRICS_ENDPOINT
+from sonarqube.utils.config import API_MONITORING_METRICS
 from sonarqube.utils.common import GET
 
 
@@ -18,7 +18,7 @@ class SonarQubeMonitoring(RestClient):
         """
         super(SonarQubeMonitoring, self).__init__(**kwargs)
 
-    @GET(API_MONITORING_METRICS_ENDPOINT)
+    @GET(API_MONITORING_METRICS)
     def get_monitoring_metrics(self):
         """
         SINCE 9.3

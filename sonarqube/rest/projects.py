@@ -3,15 +3,15 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_PROJECTS_BULK_DELETE_ENDPOINT,
-    API_PROJECTS_SEARCH_ENDPOINT,
-    API_PROJECTS_CREATE_ENDPOINT,
-    API_PROJECTS_DELETE_ENDPOINT,
-    API_PROJECTS_UPDATE_VISIBILITY_ENDPOINT,
-    API_PROJECTS_UPDATE_KEY_ENDPOINT,
-    API_PROJECTS_EXPORT_FINDINGS_ENDPOINT,
-    API_PROJECTS_LICENSE_USAGE_ENDPOINT,
-    API_PROJECTS_UPDATE_DEFAULT_VISIBILITY_ENDPOINT,
+    API_PROJECTS_BULK_DELETE,
+    API_PROJECTS_SEARCH,
+    API_PROJECTS_CREATE,
+    API_PROJECTS_DELETE,
+    API_PROJECTS_UPDATE_VISIBILITY,
+    API_PROJECTS_UPDATE_KEY,
+    API_PROJECTS_EXPORT_FINDINGS,
+    API_PROJECTS_LICENSE_USAGE,
+    API_PROJECTS_UPDATE_DEFAULT_VISIBILITY,
 )
 from sonarqube.utils.common import GET, POST
 
@@ -38,7 +38,7 @@ class SonarQubeProjects(RestClient):
             if project["key"] == key:
                 return project
 
-    @GET(API_PROJECTS_SEARCH_ENDPOINT)
+    @GET(API_PROJECTS_SEARCH)
     def search_projects(
         self,
         organization=None,
@@ -76,7 +76,7 @@ class SonarQubeProjects(RestClient):
         :return:
         """
 
-    @POST(API_PROJECTS_CREATE_ENDPOINT)
+    @POST(API_PROJECTS_CREATE)
     def create_project(self, project, name, organization=None, visibility=None):
         """
         SINCE 4.0
@@ -93,7 +93,7 @@ class SonarQubeProjects(RestClient):
         :return: request response
         """
 
-    @POST(API_PROJECTS_DELETE_ENDPOINT)
+    @POST(API_PROJECTS_DELETE)
     def delete_project(self, project):
         """
         SINCE 5.2
@@ -103,7 +103,7 @@ class SonarQubeProjects(RestClient):
         :return:
         """
 
-    @POST(API_PROJECTS_BULK_DELETE_ENDPOINT)
+    @POST(API_PROJECTS_BULK_DELETE)
     def bulk_delete_projects(
         self,
         organization=None,
@@ -137,7 +137,7 @@ class SonarQubeProjects(RestClient):
         :return:
         """
 
-    @POST(API_PROJECTS_UPDATE_KEY_ENDPOINT)
+    @POST(API_PROJECTS_UPDATE_KEY)
     def update_project_key(self, previous_project_key, new_project_key):
         """
         SINCE 6.1
@@ -148,7 +148,7 @@ class SonarQubeProjects(RestClient):
         :return:
         """
 
-    @POST(API_PROJECTS_UPDATE_VISIBILITY_ENDPOINT)
+    @POST(API_PROJECTS_UPDATE_VISIBILITY)
     def update_project_visibility(self, project, visibility):
         """
         SINCE 6.4
@@ -159,7 +159,7 @@ class SonarQubeProjects(RestClient):
         :return:
         """
 
-    @POST(API_PROJECTS_UPDATE_DEFAULT_VISIBILITY_ENDPOINT)
+    @POST(API_PROJECTS_UPDATE_DEFAULT_VISIBILITY)
     def update_project_default_visibility(self, projectVisibility):
         """
         INTERNAL SINCE 6.4
@@ -169,7 +169,7 @@ class SonarQubeProjects(RestClient):
         :return:
         """
 
-    @GET(API_PROJECTS_EXPORT_FINDINGS_ENDPOINT)
+    @GET(API_PROJECTS_EXPORT_FINDINGS)
     def export_findings_for_project(self, project, branch=None, pullRequest=None):
         """
         SINCE 9.1
@@ -182,7 +182,7 @@ class SonarQubeProjects(RestClient):
         :return:
         """
 
-    @GET(API_PROJECTS_LICENSE_USAGE_ENDPOINT)
+    @GET(API_PROJECTS_LICENSE_USAGE)
     def get_license_usage_for_project(self):
         """
         SINCE 9.4

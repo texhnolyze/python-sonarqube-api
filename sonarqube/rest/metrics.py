@@ -3,8 +3,8 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_METRICS_SEARCH_ENDPOINT,
-    API_METRICS_TYPES_ENDPOINT,
+    API_METRICS_SEARCH,
+    API_METRICS_TYPES,
 )
 from sonarqube.utils.common import GET
 
@@ -21,7 +21,7 @@ class SonarQubeMetrics(RestClient):
         """
         super(SonarQubeMetrics, self).__init__(**kwargs)
 
-    @GET(API_METRICS_SEARCH_ENDPOINT)
+    @GET(API_METRICS_SEARCH)
     def search_metrics(self, p=None, ps=None):
         """
         SINCE 5.2
@@ -33,7 +33,7 @@ class SonarQubeMetrics(RestClient):
         :return:
         """
 
-    @GET(API_METRICS_TYPES_ENDPOINT)
+    @GET(API_METRICS_TYPES)
     def get_metrics_types(self):
         """
         SINCE 5.2

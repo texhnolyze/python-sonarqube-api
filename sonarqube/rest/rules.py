@@ -3,13 +3,13 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_RULES_SEARCH_ENDPOINT,
-    API_RULES_CREATE_ENDPOINT,
-    API_RULES_UPDATE_ENDPOINT,
-    API_RULES_DELETE_ENDPOINT,
-    API_RULES_SHOW_ENDPOINT,
-    API_RULES_TAGS_ENDPOINT,
-    API_RULES_REPOSITORIES_ENDPOINT,
+    API_RULES_SEARCH,
+    API_RULES_CREATE,
+    API_RULES_UPDATE,
+    API_RULES_DELETE,
+    API_RULES_SHOW,
+    API_RULES_TAGS,
+    API_RULES_REPOSITORIES,
 )
 from sonarqube.utils.common import GET, POST
 
@@ -34,7 +34,7 @@ class SonarQubeRules(RestClient):
             if rule["key"] == key:
                 return rule
 
-    @GET(API_RULES_SEARCH_ENDPOINT)
+    @GET(API_RULES_SEARCH)
     def search_rules(
         self,
         organization=None,
@@ -225,7 +225,7 @@ class SonarQubeRules(RestClient):
         :return:
         """
 
-    @POST(API_RULES_CREATE_ENDPOINT)
+    @POST(API_RULES_CREATE)
     def create_rule(
         self,
         custom_key,
@@ -269,7 +269,7 @@ class SonarQubeRules(RestClient):
         :return: request response
         """
 
-    @POST(API_RULES_UPDATE_ENDPOINT)
+    @POST(API_RULES_UPDATE)
     def update_rule(
         self,
         key,
@@ -321,7 +321,7 @@ class SonarQubeRules(RestClient):
         :return: request response
         """
 
-    @POST(API_RULES_DELETE_ENDPOINT)
+    @POST(API_RULES_DELETE)
     def delete_rule(self, key):
         """
         SINCE 4.4
@@ -330,7 +330,7 @@ class SonarQubeRules(RestClient):
         :return:
         """
 
-    @GET(API_RULES_SHOW_ENDPOINT)
+    @GET(API_RULES_SHOW)
     def get_rule(self, key, organization=None, actives="false"):
         """
         SINCE 4.2
@@ -343,7 +343,7 @@ class SonarQubeRules(RestClient):
         :return:
         """
 
-    @GET(API_RULES_REPOSITORIES_ENDPOINT)
+    @GET(API_RULES_REPOSITORIES)
     def get_rule_repositories(self, language=None, q=None):
         """
         SINCE 4.5
@@ -354,7 +354,7 @@ class SonarQubeRules(RestClient):
         :return:
         """
 
-    @GET(API_RULES_TAGS_ENDPOINT)
+    @GET(API_RULES_TAGS)
     def get_rule_tags(self, organization=None, ps=10, q=None):
         """
         SINCE 4.4

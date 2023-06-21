@@ -3,9 +3,9 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_AUTH_LOGIN_ENDPOINT,
-    API_AUTH_LOGOUT_ENDPOINT,
-    API_AUTH_VALIDATE_ENDPOINT,
+    API_AUTH_LOGIN,
+    API_AUTH_LOGOUT,
+    API_AUTH_VALIDATE,
 )
 from sonarqube.utils.common import GET, POST
 
@@ -22,7 +22,7 @@ class SonarQubeAuth(RestClient):
         """
         super(SonarQubeAuth, self).__init__(**kwargs)
 
-    @POST(API_AUTH_LOGIN_ENDPOINT)
+    @POST(API_AUTH_LOGIN)
     def authenticate_user(self, login, password):
         """
         SINCE 6.0
@@ -33,7 +33,7 @@ class SonarQubeAuth(RestClient):
         :return:
         """
 
-    @POST(API_AUTH_LOGOUT_ENDPOINT)
+    @POST(API_AUTH_LOGOUT)
     def logout_user(self):
         """
         SINCE 6.3
@@ -42,7 +42,7 @@ class SonarQubeAuth(RestClient):
         :return:
         """
 
-    @GET(API_AUTH_VALIDATE_ENDPOINT)
+    @GET(API_AUTH_VALIDATE)
     def check_credentials(self):
         """
         SINCE 3.3

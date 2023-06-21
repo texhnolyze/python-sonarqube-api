@@ -3,9 +3,9 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_COMPONTENTS_SHOW_ENDPOINT,
-    API_COMPONTENTS_SEARCH_ENDPOINT,
-    API_COMPONTENTS_TREE_ENDPOINT,
+    API_COMPONTENTS_SHOW,
+    API_COMPONTENTS_SEARCH,
+    API_COMPONTENTS_TREE,
 )
 from sonarqube.utils.common import GET
 
@@ -22,7 +22,7 @@ class SonarQubeComponents(RestClient):
         """
         super(SonarQubeComponents, self).__init__(**kwargs)
 
-    @GET(API_COMPONTENTS_SHOW_ENDPOINT)
+    @GET(API_COMPONTENTS_SHOW)
     def get_project_component_and_ancestors(self, component, branch=None, pullRequest=None):
         """
         SINCE 5.4
@@ -35,7 +35,7 @@ class SonarQubeComponents(RestClient):
         :return:
         """
 
-    @GET(API_COMPONTENTS_SEARCH_ENDPOINT)
+    @GET(API_COMPONTENTS_SEARCH)
     def search_components(self, qualifiers, organization=None, language=None, q=None, p=None, ps=None):
         """
         SINCE 6.3
@@ -61,7 +61,7 @@ class SonarQubeComponents(RestClient):
         :return:
         """
 
-    @GET(API_COMPONTENTS_TREE_ENDPOINT)
+    @GET(API_COMPONTENTS_TREE)
     def get_components_tree(
         self,
         component,

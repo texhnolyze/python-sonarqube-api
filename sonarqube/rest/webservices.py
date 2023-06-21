@@ -3,8 +3,8 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_WEBSERVICES_LIST_ENDPOINT,
-    API_WEBSERVICES_RESPONSE_EXAMPLE_ENDPOINT,
+    API_WEBSERVICES_LIST,
+    API_WEBSERVICES_RESPONSE_EXAMPLE,
 )
 from sonarqube.utils.common import GET, POST
 
@@ -21,7 +21,7 @@ class SonarQubeWebservices(RestClient):
         """
         super(SonarQubeWebservices, self).__init__(**kwargs)
 
-    @GET(API_WEBSERVICES_LIST_ENDPOINT)
+    @GET(API_WEBSERVICES_LIST)
     def list_web_services(self, include_internals="false"):
         """
         SINCE 4.2
@@ -32,7 +32,7 @@ class SonarQubeWebservices(RestClient):
         :return:
         """
 
-    @POST(API_WEBSERVICES_RESPONSE_EXAMPLE_ENDPOINT)
+    @POST(API_WEBSERVICES_RESPONSE_EXAMPLE)
     def web_service_response_example(self, action, controller):
         """
         SINCE 4.4

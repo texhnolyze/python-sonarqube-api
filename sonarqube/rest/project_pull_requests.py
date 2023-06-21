@@ -3,8 +3,8 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_PROJECT_PULL_REQUESTS_DELETE_ENDPOINT,
-    API_PROJECT_PULL_REQUESTS_LIST_ENDPOINT,
+    API_PROJECT_PULL_REQUESTS_DELETE,
+    API_PROJECT_PULL_REQUESTS_LIST,
 )
 from sonarqube.utils.common import GET, POST
 
@@ -21,7 +21,7 @@ class SonarQubeProjectPullRequests(RestClient):
         """
         super(SonarQubeProjectPullRequests, self).__init__(**kwargs)
 
-    @GET(API_PROJECT_PULL_REQUESTS_LIST_ENDPOINT)
+    @GET(API_PROJECT_PULL_REQUESTS_LIST)
     def search_project_pull_requests(self, project):
         """
         SINCE 7.1
@@ -31,7 +31,7 @@ class SonarQubeProjectPullRequests(RestClient):
         :return:
         """
 
-    @POST(API_PROJECT_PULL_REQUESTS_DELETE_ENDPOINT)
+    @POST(API_PROJECT_PULL_REQUESTS_DELETE)
     def delete_project_pull_requests(self, project, pullRequest):
         """
         SINCE 7.1

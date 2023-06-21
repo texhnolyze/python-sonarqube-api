@@ -3,13 +3,13 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_USER_GROUPS_SEARCH_ENDPOINT,
-    API_USER_GROUPS_CREATE_ENDPOINT,
-    API_USER_GROUPS_DELETE_ENDPOINT,
-    API_USER_GROUPS_UPDATE_ENDPOINT,
-    API_USER_GROUPS_USERS_ENDPOINT,
-    API_USER_GROUPS_ADD_USER_ENDPOINT,
-    API_USER_GROUPS_REMOVE_USER_ENDPOINT,
+    API_USER_GROUPS_SEARCH,
+    API_USER_GROUPS_CREATE,
+    API_USER_GROUPS_DELETE,
+    API_USER_GROUPS_UPDATE,
+    API_USER_GROUPS_USERS,
+    API_USER_GROUPS_ADD_USER,
+    API_USER_GROUPS_REMOVE_USER,
 )
 from sonarqube.utils.common import GET, POST
 
@@ -34,7 +34,7 @@ class SonarQubeUserGroups(RestClient):
             if group["name"] == name:
                 return group
 
-    @GET(API_USER_GROUPS_SEARCH_ENDPOINT)
+    @GET(API_USER_GROUPS_SEARCH)
     def search_user_groups(self, organization=None, f=None, managed=None, q=None, p=None, ps=None):
         """
         SINCE 5.2
@@ -54,7 +54,7 @@ class SonarQubeUserGroups(RestClient):
         :return:
         """
 
-    @POST(API_USER_GROUPS_CREATE_ENDPOINT)
+    @POST(API_USER_GROUPS_CREATE)
     def create_group(self, name, organization=None, description=None):
         """
         SINCE 5.2
@@ -67,7 +67,7 @@ class SonarQubeUserGroups(RestClient):
         :return: request response
         """
 
-    @POST(API_USER_GROUPS_DELETE_ENDPOINT)
+    @POST(API_USER_GROUPS_DELETE)
     def delete_group(self, name, organization=None):
         """
         SINCE 5.2
@@ -78,7 +78,7 @@ class SonarQubeUserGroups(RestClient):
         :return:
         """
 
-    @POST(API_USER_GROUPS_UPDATE_ENDPOINT)
+    @POST(API_USER_GROUPS_UPDATE)
     def update_group(self, currentName, name=None, description=None):
         """
         SINCE 5.2
@@ -93,7 +93,7 @@ class SonarQubeUserGroups(RestClient):
         :return:
         """
 
-    @POST(API_USER_GROUPS_ADD_USER_ENDPOINT)
+    @POST(API_USER_GROUPS_ADD_USER)
     def add_user_to_group(self, name, login, organization=None):
         """
         SINCE 5.2
@@ -105,7 +105,7 @@ class SonarQubeUserGroups(RestClient):
         :return:
         """
 
-    @POST(API_USER_GROUPS_REMOVE_USER_ENDPOINT)
+    @POST(API_USER_GROUPS_REMOVE_USER)
     def remove_user_from_group(self, name, login, organization=None):
         """
         SINCE 5.2
@@ -117,7 +117,7 @@ class SonarQubeUserGroups(RestClient):
         :return:
         """
 
-    @GET(API_USER_GROUPS_USERS_ENDPOINT)
+    @GET(API_USER_GROUPS_USERS)
     def search_users_belong_to_group(self, name, organization=None, q=None, selected="selected", p=None, ps=None):
         """
         SINCE 5.2

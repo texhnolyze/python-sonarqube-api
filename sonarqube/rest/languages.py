@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
-from sonarqube.utils.config import API_LANGUAGES_LIST_ENDPOINT
+from sonarqube.utils.config import API_LANGUAGES_LIST
 from sonarqube.utils.common import GET
 
 
@@ -18,7 +18,7 @@ class SonarQubeLanguages(RestClient):
         """
         super(SonarQubeLanguages, self).__init__(**kwargs)
 
-    @GET(API_LANGUAGES_LIST_ENDPOINT)
+    @GET(API_LANGUAGES_LIST)
     def get_supported_programming_languages(self, q=None):
         """
         SINCE 5.1

@@ -3,10 +3,10 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_SETTINGS_SET_ENDPOINT,
-    API_SETTINGS_RESET_ENDPOINT,
-    API_SETTINGS_VALUES_ENDPOINT,
-    API_SETTINGS_LIST_DEFINITIONS_ENDPOINT,
+    API_SETTINGS_SET,
+    API_SETTINGS_RESET,
+    API_SETTINGS_VALUES,
+    API_SETTINGS_LIST_DEFINITIONS,
 )
 from sonarqube.utils.common import GET, POST
 
@@ -23,7 +23,7 @@ class SonarQubeSettings(RestClient):
         """
         super(SonarQubeSettings, self).__init__(**kwargs)
 
-    @POST(API_SETTINGS_SET_ENDPOINT)
+    @POST(API_SETTINGS_SET)
     def update_setting_value(self, key, value, component=None, fieldValues=None):
         """
         SINCE 6.1
@@ -38,7 +38,7 @@ class SonarQubeSettings(RestClient):
         :return:
         """
 
-    @POST(API_SETTINGS_RESET_ENDPOINT)
+    @POST(API_SETTINGS_RESET)
     def remove_setting_value(self, keys, component=None):
         """
         SINCE 6.1
@@ -50,7 +50,7 @@ class SonarQubeSettings(RestClient):
         :return:
         """
 
-    @GET(API_SETTINGS_VALUES_ENDPOINT)
+    @GET(API_SETTINGS_VALUES)
     def get_settings_values(self, component=None, keys=None):
         """
         SINCE 6.3
@@ -63,7 +63,7 @@ class SonarQubeSettings(RestClient):
         :return:
         """
 
-    @GET(API_SETTINGS_LIST_DEFINITIONS_ENDPOINT)
+    @GET(API_SETTINGS_LIST_DEFINITIONS)
     def get_settings_definitions(self, component=None):
         """
         SINCE 6.3

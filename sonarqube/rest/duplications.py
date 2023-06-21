@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
-from sonarqube.utils.config import API_DUPLICATIONS_SHOW_ENDPOINT
+from sonarqube.utils.config import API_DUPLICATIONS_SHOW
 from sonarqube.utils.common import GET
 
 
@@ -18,7 +18,7 @@ class SonarQubeDuplications(RestClient):
         """
         super(SonarQubeDuplications, self).__init__(**kwargs)
 
-    @GET(API_DUPLICATIONS_SHOW_ENDPOINT)
+    @GET(API_DUPLICATIONS_SHOW)
     def get_duplications(self, key, branch=None, pullRequest=None):
         """
         SINCE 4.4

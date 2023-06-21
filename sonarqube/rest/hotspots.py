@@ -3,9 +3,9 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_HOTSPOTS_SHOW_ENDPOINT,
-    API_HOTSPOTS_SEARCH_ENDPOINT,
-    API_HOTSPOTS_CHANGE_STATUS_ENDPOINT,
+    API_HOTSPOTS_SHOW,
+    API_HOTSPOTS_SEARCH,
+    API_HOTSPOTS_CHANGE_STATUS,
 )
 from sonarqube.utils.common import GET, POST
 
@@ -22,7 +22,7 @@ class SonarQubeHotspots(RestClient):
         """
         super(SonarQubeHotspots, self).__init__(**kwargs)
 
-    @GET(API_HOTSPOTS_SEARCH_ENDPOINT)
+    @GET(API_HOTSPOTS_SEARCH)
     def search_hotspots(
         self,
         branch=None,
@@ -80,7 +80,7 @@ class SonarQubeHotspots(RestClient):
 
         """
 
-    @GET(API_HOTSPOTS_SHOW_ENDPOINT)
+    @GET(API_HOTSPOTS_SHOW)
     def show(self, hotspot):
         """
         SINCE 8.1
@@ -90,7 +90,7 @@ class SonarQubeHotspots(RestClient):
         :return:
         """
 
-    @POST(API_HOTSPOTS_CHANGE_STATUS_ENDPOINT)
+    @POST(API_HOTSPOTS_CHANGE_STATUS)
     def change_hotspots_status(self, hotspot, status, comment=None, resolution=None):
         """
         SINCE 8.1

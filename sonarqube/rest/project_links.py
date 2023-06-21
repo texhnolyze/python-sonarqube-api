@@ -3,9 +3,9 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_PROJECT_LINKS_CREATE_ENDPOINT,
-    API_PROJECT_LINKS_DELETE_ENDPOINT,
-    API_PROJECT_LINKS_SEARCH_ENDPOINT,
+    API_PROJECT_LINKS_CREATE,
+    API_PROJECT_LINKS_DELETE,
+    API_PROJECT_LINKS_SEARCH,
 )
 from sonarqube.utils.common import GET, POST
 
@@ -22,7 +22,7 @@ class SonarQubeProjectLinks(RestClient):
         """
         super(SonarQubeProjectLinks, self).__init__(**kwargs)
 
-    @POST(API_PROJECT_LINKS_CREATE_ENDPOINT)
+    @POST(API_PROJECT_LINKS_CREATE)
     def create_project_link(self, projectKey, name, url):
         """
         SINCE 6.1
@@ -34,7 +34,7 @@ class SonarQubeProjectLinks(RestClient):
         :return: request response
         """
 
-    @POST(API_PROJECT_LINKS_DELETE_ENDPOINT)
+    @POST(API_PROJECT_LINKS_DELETE)
     def delete_project_link(self, id):
         """
         SINCE 6.1
@@ -44,7 +44,7 @@ class SonarQubeProjectLinks(RestClient):
         :return:
         """
 
-    @GET(API_PROJECT_LINKS_SEARCH_ENDPOINT)
+    @GET(API_PROJECT_LINKS_SEARCH)
     def search_project_links(self, projectKey):
         """
         SINCE 6.1
