@@ -3,8 +3,8 @@
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
-    API_PROJECT_PULL_REQUESTS_DELETE_ENDPOINT,  # pro
-    API_PROJECT_PULL_REQUESTS_LIST_ENDPOINT,  # pro
+    API_PROJECT_PULL_REQUESTS_DELETE_ENDPOINT,
+    API_PROJECT_PULL_REQUESTS_LIST_ENDPOINT,
 )
 from sonarqube.utils.common import GET, POST
 

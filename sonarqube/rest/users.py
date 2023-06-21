@@ -11,7 +11,7 @@ from sonarqube.utils.config import (
     API_USERS_GROUPS_ENDPOINT,
     API_USERS_DEACTIVATE_ENDPOINT,
     API_USERS_UPDATE_LOGIN_ENDPOINT,
-    API_USERS_DISMISS_SONARLINT_AD_ENDPOINT,
+    API_USERS_DISMISS_NOTICE,
     API_USERS_UPDATE_IDENTITY_ENDPOINT,
 )
 from sonarqube.utils.common import GET, POST
@@ -158,12 +158,15 @@ class SonarQubeUsers(SonarQubeBaseUsers):
         :return:
         """
 
-    @POST(API_USERS_DISMISS_SONARLINT_AD_ENDPOINT)
-    def dismiss_sonarlint_advertisement(self):
+    @POST(API_USERS_DISMISS_NOTICE)
+    def dismiss_notice(self, notice):
         """
-        SINCE 9.2
-        Dismiss SonarLint advertisement.
+        SINCE 9.6
+        Dismiss a notice for the current user.
 
+        :param notice: The notice key to dismiss. Possible values are:
+            * sonarlintAd
+            * educationPrinciples
         :return:
         """
 

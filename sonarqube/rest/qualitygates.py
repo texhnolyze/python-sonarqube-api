@@ -18,6 +18,7 @@ from sonarqube.utils.config import (
     API_QUALITYGATES_UPDATE_CONDITION_ENDPOINT,
     API_QUALITYGATES_SEARCH_ENDPOINT,
     API_QUALITYGATES_SET_AS_DEFAULT_ENDPOINT,
+    API_QUALITYGATES_ADD_USER_ENDPOINT,
     API_QUALITYGATES_ADD_GROUP_ENDPOINT,
 )
 from sonarqube.utils.common import GET, POST
@@ -34,6 +35,17 @@ class SonarQubeQualityGates(RestClient):
         :param kwargs:
         """
         super(SonarQubeQualityGates, self).__init__(**kwargs)
+
+    @POST(API_QUALITYGATES_ADD_USER_ENDPOINT)
+    def add_user_to_gate(self, gateName, login):
+        """
+        SINCE 9.2
+        Allow a user to edit a Quality Gate.
+
+        :param gateName: The name of the quality gate
+        :param login: User login
+        :return:
+        """
 
     @POST(API_QUALITYGATES_ADD_GROUP_ENDPOINT)
     def add_group_to_gate(self, gateName, groupName):

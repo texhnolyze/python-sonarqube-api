@@ -5,7 +5,7 @@ from sonarqube.utils.rest_client import RestClient
 from sonarqube.utils.config import (
     API_HOTSPOTS_SHOW_ENDPOINT,
     API_HOTSPOTS_SEARCH_ENDPOINT,
-    API_HOTSPOTS_CHANGE_STATUS_ENDPOINT,  # pro
+    API_HOTSPOTS_CHANGE_STATUS_ENDPOINT,
 )
 from sonarqube.utils.common import GET, POST
 
@@ -93,7 +93,7 @@ class SonarQubeHotspots(RestClient):
     @POST(API_HOTSPOTS_CHANGE_STATUS_ENDPOINT)
     def change_hotspots_status(self, hotspot, status, comment=None, resolution=None):
         """
-        since 8.1
+        SINCE 8.1
         Change the status of a Security Hotpot.
         Requires the 'Administer Security Hotspot' permission.
 

@@ -5,35 +5,35 @@ from sonarqube.utils.common import POST, GET
 from sonarqube.utils.rest_client import RestClient
 
 from sonarqube.utils.config import (
-    API_VIEWS_UPDATE,  # pro
-    API_VIEWS_SHOW,  # pro
-    API_VIEWS_SET_TAGS_MODE,  # pro
-    API_VIEWS_SET_REMAINING_PROJECTS_MODE,  # pro
-    API_VIEWS_SET_REGEXP_MODE,  # pro
-    API_VIEWS_SET_MANUAL_MODE,  # pro
-    API_VIEWS_REMOVE_PROJECT,  # pro
-    API_VIEWS_MOVE_OPTIONS,  # pro
-    API_VIEWS_MOVE,  # pro
-    API_VIEWS_LOCAL_VIEWS,  # pro
-    API_VIEWS_LIST,  # pro
-    API_VIEWS_DEFINITION,  # pro
-    API_VIEWS_DEFINE,  # pro
-    API_VIEWS_CREATE,  # pro
-    API_VIEWS_DELETE,  # pro
-    API_VIEWS_ADD_SUB_VIEW,  # pro
-    API_VIEWS_ADD_PROJECT,  # pro
-    API_VIEWS_ADD_LOCAL_VIEW,  # pro
-    API_VIEWS_SET_NONE_MODE_VIEW,  # pro
-    API_VIEWS_ADD_PROJECT_BRANCH_VIEW,  # pro
-    API_VIEWS_REMOVE_PROJECT_BRANCH_VIEW,  # pro
-    API_VIEWS_ADD_APPLICATION_BRANCH_VIEW,  # pro
-    API_VIEWS_REMOVE_APPLICATION_BRANCH_VIEW,  # pro
-    API_VIEWS_APPLICATIONS_VIEW,  # pro
-    API_VIEWS_ADD_APPLICATION_VIEW,  # pro
-    API_VIEWS_REMOVE_APPLICATION_VIEW,  # pro
-    API_VIEWS_PORTFOLIOS_VIEW,  # pro
-    API_VIEWS_ADD_PORTFOLIO_VIEW,  # pro
-    API_VIEWS_REMOVE_PORTFOLIO_VIEW,  # pro
+    API_VIEWS_UPDATE,
+    API_VIEWS_SHOW,
+    API_VIEWS_SET_TAGS_MODE,
+    API_VIEWS_SET_REMAINING_PROJECTS_MODE,
+    API_VIEWS_SET_REGEXP_MODE,
+    API_VIEWS_SET_MANUAL_MODE,
+    API_VIEWS_SET_NONE_MODE,
+    API_VIEWS_REMOVE_PROJECT,
+    API_VIEWS_MOVE_OPTIONS,
+    API_VIEWS_MOVE,
+    API_VIEWS_LOCAL_VIEWS,
+    API_VIEWS_LIST,
+    API_VIEWS_DEFINITION,
+    API_VIEWS_DEFINE,
+    API_VIEWS_CREATE,
+    API_VIEWS_DELETE,
+    API_VIEWS_ADD_SUB_VIEW,
+    API_VIEWS_ADD_PROJECT,
+    API_VIEWS_ADD_LOCAL_VIEW,
+    API_VIEWS_ADD_PROJECT_BRANCH,
+    API_VIEWS_REMOVE_PROJECT_BRANCH,
+    API_VIEWS_ADD_APPLICATION_BRANCH,
+    API_VIEWS_REMOVE_APPLICATION_BRANCH,
+    API_VIEWS_APPLICATIONS,
+    API_VIEWS_ADD_APPLICATION,
+    API_VIEWS_REMOVE_APPLICATION,
+    API_VIEWS_PORTFOLIOS,
+    API_VIEWS_ADD_PORTFOLIO,
+    API_VIEWS_REMOVE_PORTFOLIO,
 )
 
 
@@ -60,7 +60,7 @@ class SonarQubeViews(RestClient):
     @POST(API_VIEWS_ADD_LOCAL_VIEW)
     def add_local_view(self, key, ref_key):
         """
-        since 1.0
+        SINCE 1.0
         Add a local reference to an existing portfolio
         Authentication is required for this API endpoint
 
@@ -72,7 +72,7 @@ class SonarQubeViews(RestClient):
     @POST(API_VIEWS_ADD_PROJECT)
     def add_project(self, key, project):
         """
-        since 1.0
+        SINCE 1.0
         Add a project to a portfolio
         Requires 'Administrator' permission on the portfolio and 'Browse' permission for adding project
 
@@ -84,7 +84,7 @@ class SonarQubeViews(RestClient):
     @POST(API_VIEWS_ADD_SUB_VIEW)
     def add_sub_view(self, key, name, description=None, subKey=None):
         """
-        since 1.0
+        SINCE 1.0
         Add a portfolio to an existing portfolio
         Authentication is required for this API endpoint
 
@@ -98,7 +98,7 @@ class SonarQubeViews(RestClient):
     @POST(API_VIEWS_CREATE)
     def create(self, name, description=None, key=None, visibility=None):
         """
-        since 1.0
+        SINCE 1.0
         Create a new (root) portfolio.
         Requires 'Administer System' permission or 'Create Portfolios' permission
 
@@ -116,7 +116,7 @@ class SonarQubeViews(RestClient):
     @POST(API_VIEWS_DEFINE)
     def define(self, definition):
         """
-        since 1.0
+        SINCE 1.0
         Define the portfolio structure by uploading a XML definition file. The uploaded file is validated against the
         XML Schema available on the server and its structure is checked for inconsistencies (e.g loops in local
         references, duplicate project associations). If the file is deemed valid, the portfolio hierarchy is updated
@@ -129,7 +129,7 @@ class SonarQubeViews(RestClient):
     @GET(API_VIEWS_DEFINITION)
     def definition(self):
         """
-        since 2.0
+        SINCE 2.0
         Return the definition of the structure of portfolios in XML format.
         Requires Create Projects permission.
 
@@ -139,7 +139,7 @@ class SonarQubeViews(RestClient):
     @POST(API_VIEWS_DELETE)
     def delete(self, key):
         """
-        since 1.0
+        SINCE 1.0
         Delete a portfolio definition.
         Requires 'Administrator' permission on the portfolio
 
@@ -150,7 +150,7 @@ class SonarQubeViews(RestClient):
     @GET(API_VIEWS_LIST)
     def list(self):
         """
-        since 1.0
+        SINCE 1.0
         List root portfolios.
         Requires authentication. Only portfolios with the admin permission are returned.
 
@@ -160,7 +160,7 @@ class SonarQubeViews(RestClient):
     @GET(API_VIEWS_LOCAL_VIEWS)
     def local_views(self, key):
         """
-        since 1.0
+        SINCE 1.0
         List portfolios that can be locally referrenced
         Authentication is required for this API endpoint
 
@@ -171,7 +171,7 @@ class SonarQubeViews(RestClient):
     @POST(API_VIEWS_MOVE)
     def move(self, destination, key):
         """
-        since 1.0
+        SINCE 1.0
         Move a portfolio
         Authentication is required for this API endpoint
 
@@ -183,7 +183,7 @@ class SonarQubeViews(RestClient):
     @GET(API_VIEWS_MOVE_OPTIONS)
     def move_options(self, key):
         """
-        since 1.0
+        SINCE 1.0
         List possible portfolio destinations
         Authentication is required for this API endpoint
 
@@ -194,7 +194,7 @@ class SonarQubeViews(RestClient):
     @POST(API_VIEWS_REMOVE_PROJECT)
     def remove_project(self, key, project):
         """
-        since 1.0
+        SINCE 1.0
         Remove a project from a portfolio
         Requires 'Administrator' permission on the portfolio
 
@@ -206,7 +206,7 @@ class SonarQubeViews(RestClient):
     @POST(API_VIEWS_SET_MANUAL_MODE)
     def set_manual_mode(self, portfolio):
         """
-        since 7.4
+        SINCE 7.4
         Set the projects selection mode of a portfolio on manual selection.
         In order to add project, please use api/view/add_project.
         Requires 'Administrator' permission on the portfolio
@@ -218,7 +218,7 @@ class SonarQubeViews(RestClient):
     @POST(API_VIEWS_SET_REGEXP_MODE)
     def set_regexp_mode(self, portfolio, regexp):
         """
-        since 7.4
+        SINCE 7.4
         Set the projects selection mode of a portfolio on regular expression.
         Requires 'Administrator' permission on the portfolio
 
@@ -230,7 +230,7 @@ class SonarQubeViews(RestClient):
     @POST(API_VIEWS_SET_REMAINING_PROJECTS_MODE)
     def set_remaining_projects_mode(self, portfolio):
         """
-        since 7.4
+        SINCE 7.4
         Set the projects selection mode of a portfolio on unassociated projects in hierarchy.
         Requires 'Administrator' permission on the portfolio
 
@@ -241,7 +241,7 @@ class SonarQubeViews(RestClient):
     @POST(API_VIEWS_SET_TAGS_MODE)
     def set_tags_mode(self, portfolio, tags):
         """
-        since 7.4
+        SINCE 7.4
         Set the projects selection mode of a portfolio on project tags.
         Requires 'Administrator' permission on the portfolio
 
@@ -253,7 +253,7 @@ class SonarQubeViews(RestClient):
     @GET(API_VIEWS_SHOW)
     def show(self, key):
         """
-        since 1.0
+        SINCE 1.0
         Show the details of a portfolio, including its hierarchy and project selection mode.
         Authentication is required for this API endpoint
 
@@ -264,7 +264,7 @@ class SonarQubeViews(RestClient):
     @POST(API_VIEWS_UPDATE)
     def update(self, key, name, description=None):
         """
-        since 1.0
+        SINCE 1.0
         Update a portfolio.
         Requires 'Administrator' permission on the portfolio
 
@@ -274,7 +274,7 @@ class SonarQubeViews(RestClient):
         :return:
         """
 
-    @POST(API_VIEWS_ADD_APPLICATION_VIEW)
+    @POST(API_VIEWS_ADD_APPLICATION)
     def add_application(self, application, portfolio):
         """
         SINCE 9.3
@@ -285,7 +285,7 @@ class SonarQubeViews(RestClient):
         :return:
         """
 
-    @POST(API_VIEWS_ADD_APPLICATION_BRANCH_VIEW)
+    @POST(API_VIEWS_ADD_APPLICATION_BRANCH)
     def add_application_branch(self, application, branch, key):
         """
         SINCE 9.3
@@ -297,7 +297,7 @@ class SonarQubeViews(RestClient):
         :return:
         """
 
-    @POST(API_VIEWS_ADD_PORTFOLIO_VIEW)
+    @POST(API_VIEWS_ADD_PORTFOLIO)
     def add_portfolio(self, portfolio, reference):
         """
         SINCE 9.3
@@ -308,7 +308,7 @@ class SonarQubeViews(RestClient):
         :return:
         """
 
-    @POST(API_VIEWS_ADD_PROJECT_BRANCH_VIEW)
+    @POST(API_VIEWS_ADD_PROJECT_BRANCH)
     def add_project_branch(self, project, branch, key):
         """
         SINCE 9.2
@@ -320,7 +320,7 @@ class SonarQubeViews(RestClient):
         :return:
         """
 
-    @GET(API_VIEWS_APPLICATIONS_VIEW)
+    @GET(API_VIEWS_APPLICATIONS)
     def list_applications(self, portfolio):
         """
         SINCE 9.3
@@ -330,7 +330,7 @@ class SonarQubeViews(RestClient):
         :return:
         """
 
-    @GET(API_VIEWS_PORTFOLIOS_VIEW)
+    @GET(API_VIEWS_PORTFOLIOS)
     def list_portfolios(self, portfolio):
         """
         SINCE 9.3
@@ -340,7 +340,7 @@ class SonarQubeViews(RestClient):
         :return:
         """
 
-    @POST(API_VIEWS_REMOVE_APPLICATION_VIEW)
+    @POST(API_VIEWS_REMOVE_APPLICATION)
     def remove_application(self, application, portfolio):
         """
         SINCE 9.3
@@ -351,7 +351,7 @@ class SonarQubeViews(RestClient):
         :return:
         """
 
-    @POST(API_VIEWS_REMOVE_APPLICATION_BRANCH_VIEW)
+    @POST(API_VIEWS_REMOVE_APPLICATION_BRANCH)
     def remove_application_branch(self, application, branch, key):
         """
         SINCE 9.3
@@ -363,7 +363,7 @@ class SonarQubeViews(RestClient):
         :return:
         """
 
-    @POST(API_VIEWS_REMOVE_PORTFOLIO_VIEW)
+    @POST(API_VIEWS_REMOVE_PORTFOLIO)
     def remove_portfolio(self, portfolio, reference):
         """
         SINCE 9.3
@@ -374,7 +374,7 @@ class SonarQubeViews(RestClient):
         :return:
         """
 
-    @POST(API_VIEWS_REMOVE_PROJECT_BRANCH_VIEW)
+    @POST(API_VIEWS_REMOVE_PROJECT_BRANCH)
     def remove_project_branch(self, project, branch, key):
         """
         SINCE 9.2
@@ -386,7 +386,7 @@ class SonarQubeViews(RestClient):
         :return:
         """
 
-    @POST(API_VIEWS_SET_NONE_MODE_VIEW)
+    @POST(API_VIEWS_SET_NONE_MODE)
     def set_none_mode(self, portfolio):
         """
         SINCE 9.1

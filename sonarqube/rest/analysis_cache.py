@@ -20,7 +20,7 @@ class SonarQubeAnalysisCache(RestClient):
     @GET(API_ANALYSIS_CACHE)
     def get_analysis_cache(self, project, branch=None):
         """
-        since 9.4
+        SINCE 9.4
         Get the scanner's cached data for a branch. Requires scan permission on the project.
         Data is returned gzipped if the corresponding 'Accept-Encoding' header is set in the request.
 

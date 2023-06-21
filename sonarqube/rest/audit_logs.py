@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 # @Author: Jialiang Shi
 from sonarqube.utils.rest_client import RestClient
-from sonarqube.utils.config import API_AUDIT_LOGS_DOWNLOAD_ENDPOINT  # pro
+from sonarqube.utils.config import API_AUDIT_LOGS_DOWNLOAD_ENDPOINT
 from sonarqube.utils.common import GET
 
 
@@ -21,7 +21,7 @@ class SonarQubeAuditLogs(RestClient):
     @GET(API_AUDIT_LOGS_DOWNLOAD_ENDPOINT)
     def download_audit_logs(self, from_date, to_date):
         """
-        since 9.1
+        SINCE 9.1
         Returns security related audits of this SonarQube instance.
 
         :param from_date: Date in ISO 8601 datetime format (YYYY-MM-DDThh:mm:ss±hh:mm)

@@ -22,8 +22,8 @@ from sonarqube.utils.config import (
     API_PERMISSIONS_SEARCH_TEMPLATES_ENDPOINT,
     API_PERMISSIONS_SET_DEFAULT_TEMPLATE_ENDPOINT,
     API_PERMISSIONS_UPDATE_TEMPLATE_ENDPOINT,
-    API_PERMISSIONS_GET_TEMPLATE_USERS,
-    API_PERMISSIONS_GET_TEMPLATE_GROUPS,
+    API_PERMISSIONS_TEMPLATE_USERS_ENDPOINT,
+    API_PERMISSIONS_TEMPLATE_GROUPS_ENDPOINT,
 )
 from sonarqube.utils.common import GET, POST
 
@@ -96,7 +96,7 @@ class SonarQubePermissions(RestClient):
     @GET(API_PERMISSIONS_USERS_ENDPOINT)
     def get_users_permissions(self, permission=None, projectKey=None, q=None, p=None, ps=None):
         """
-        SINCE 5.2
+        INTERNAL SINCE 5.2
         Lists the users with their permissions as individual users rather than through group affiliation.
         This service defaults to global permissions, but can be limited to project permissions by providing project id or project key.
         This service defaults to all users, but can be limited to users with a specific permission by providing the desired permission.
@@ -115,7 +115,7 @@ class SonarQubePermissions(RestClient):
     @GET(API_PERMISSIONS_GROUPS_ENDPOINT)
     def get_groups_permissions(self, permission=None, projectKey=None, q=None, p=None, ps=None):
         """
-        SINCE 5.2
+        INTERNAL SINCE 5.2
         Lists the groups with their permissions.
         This service defaults to global permissions, but can be limited to project permissions by providing project id or project key.
         This service defaults to all groups, but can be limited to groups with a specific permission by providing the desired permission.
@@ -316,9 +316,10 @@ class SonarQubePermissions(RestClient):
         :return: defaultTemplates, permissionTemplates, permissions
         """
 
-    @GET(API_PERMISSIONS_GET_TEMPLATE_USERS)
+    @GET(API_PERMISSIONS_TEMPLATE_USERS_ENDPOINT)
     def get_template_users(self, templateId, permission=None, p=None, ps=None):
         """
+        INTERNAL SINCE 5.2
         List of users and their permissions for the specified template.
 
         :param templateId: Id of permission template
@@ -328,9 +329,10 @@ class SonarQubePermissions(RestClient):
         return: users
         """
 
-    @GET(API_PERMISSIONS_GET_TEMPLATE_GROUPS)
+    @GET(API_PERMISSIONS_TEMPLATE_GROUPS_ENDPOINT)
     def get_template_groups(self, templateId, permission=None, p=None, ps=None):
         """
+        INTERNAL SINCE 5.2
         List of groups and their permissions for the specified template.
 
         :param templateId: Id of permission template
