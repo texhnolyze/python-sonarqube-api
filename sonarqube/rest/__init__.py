@@ -443,11 +443,3 @@ class SonarQubeClient:
 
         """
         return SonarQubeViews(api=self)
-
-
-class SonarEnterpriseClient(SonarQubeClient):
-    pass
-
-
-class SonarCloudClient(SonarQubeClient):
-    pass
