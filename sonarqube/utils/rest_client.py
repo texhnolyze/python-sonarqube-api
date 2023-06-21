@@ -19,7 +19,7 @@ class RestClient(object):
     default_headers = {"Content-Type": "application/json", "Accept": "application/json"}
     default_timeout = 60
     special_attributes_map = {}
-    MAX_SEARCH_NUM = 10000
+    MAX_SEARCH_NUM = 500
 
     def __init__(self, api):
         self.api = api
